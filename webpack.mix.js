@@ -13,3 +13,9 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+mix.copyDirectory(['resources/assets/css',], 'public/css');
+mix.copyDirectory(['resources/assets/js',], 'public/js');
+mix.copyDirectory(['resources/assets/fonts',], 'public/fonts');
+mix.copyDirectory(['resources/assets/font-awesome',], 'public/font-awesome');
+mix.copyDirectory(['resources/assets/lineicons',], 'public/lineicons');
+mix.copyDirectory(['resources/assets/images',], 'public/images');
