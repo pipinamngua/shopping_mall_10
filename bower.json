@@ -15,5 +15,8 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "Hoang_library": "*",
+    "ubuntu-fontface": "^0.1.13"
+  }
 }

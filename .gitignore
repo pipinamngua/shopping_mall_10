@@ -13,6 +13,7 @@ public/css
 public/js
 public/images
 public/fonts
+public/assets
 storage/*.key
 .env.*.php
 public/mix-manifest.json
