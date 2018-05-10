@@ -12,11 +12,6 @@
     <!-- Styles -->
     {{ Html::style('css/user/bootstrap.css') }}
     {{ Html::style('css/user/style.css') }}
-    {{ Html::style('css/user/fasthover.css') }}
-    {{ Html::script('js/user/jquery.min.js') }}
-    {{ Html::style('css/user/jquery.countdown.css') }}
-    {{ Html::script('js/user/simpleCart.min.js') }}
-    {{ Html::style('//fonts.googleapis.com/css?family=Glegoo:400,700') }}
 
 </head>
 <body>
@@ -106,7 +101,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
-                    <h3>{{ trans('settings.layout.title.profile') }}</h3>
+                    <h3>{{ trans('settings.title.profile') }}</h3>
                     <ul class="info"> 
                         <li><a href="#">{{ trans('settings.title.history') }}</a></li>
                     </ul>
@@ -130,7 +125,7 @@
                 </div>
             </div>
             <div class="container">
-                <p>{{ trans('settings.layout.footer.sign') }}</p>
+                <p>{{ trans('settings.layout.admin.sign') }}</p>
             </div>
         </div>
     </div>

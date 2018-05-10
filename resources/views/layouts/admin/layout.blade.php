@@ -11,13 +11,8 @@
     <title>@yield('title')</title>
 
     <!-- Styles -->
-    {{ Html::style('css/admin/bootstrap.css') }}
-    {{ Html::style('font-awesome/css/font-awesome.css') }}
-    {{ Html::style('css/admin/zabuto_calendar.css') }}
-    {{ Html::style('js/admin/gritter/css/jquery.gritter.css') }}
-    {{ Html::style('lineicons/style.css') }}     
+    {{ Html::style('css/app.css') }}
     {{ Html::style('css/admin/style.css') }}
-    {{ Html::style('css/admin/style-responsive.css') }} 
 
 </head>
 <body>
@@ -186,22 +181,9 @@
     </footer>
   <!--footer end-->
 </section>
-
-    <!-- js placed at the end of the document so the pages load faster -->
-    {{ Html::script('js/admin/jquery.js') }}
-    {{ Html::script('js/admin/jquery-1.8.3.min.js') }}
-    {{ Html::script('js/admin/bootstrap.min.js') }}
-    {{ Html::script('js/admin/jquery.dcjqaccordion.2.7.js') }}
-    {{ Html::script('js/admin/jquery.scrollTo.min.js') }}
-    {{ Html::script('js/admin/jquery.nicescroll.js') }}
-    {{ Html::script('js/admin/jquery.sparkline.js') }}
-    <!--common script for all pages-->
+    
     {{ Html::script('js/admin/common-scripts.js') }}
-    {{ Html::script('js/admin/gritter/js/jquery.gritter.js') }}
-    {{ Html::script('js/admin/gritter-conf.js') }}
-    <!--script for this page-->
-    {{ Html::script('js/admin/sparkline-chart.js') }}
-    {{ Html::script('js/admin/zabuto_calendar.js') }}
+    {{ Html::script('js/app.js') }}
 
 </body>
 </html>
