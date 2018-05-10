@@ -23,5 +23,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'role_id' => 2,
         'credit_card' => $faker->creditCardNumber,
         'points' => 0,
+        'avatar' => 'unknown.png',
+        'gender' => 'Male',
+        'dob' => "1997-07-06",
     ];
 });

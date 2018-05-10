@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'type', 'phone', 'credit_card', 'points'
+        'name', 'email', 'password', 'type', 'phone', 'credit_card', 'points','avatar','gender','date',
     ];
 
     /**
@@ -29,6 +29,11 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->belongsToMany(Product::class,'comments', 'user_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'comments', 'user_id', 'product_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 }
