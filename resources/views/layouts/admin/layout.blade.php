@@ -11,8 +11,9 @@
     <title>@yield('title')</title>
 
     <!-- Styles -->
-    {{ Html::style('css/app.css') }}
+    {{ Html::style('css/admin/bootstrap.css') }}
     {{ Html::style('css/admin/style.css') }}
+    {{ Html::style('assets/Hoang_library/font-awesome/css/font-awesome.css') }}
 
 </head>
 <body>
@@ -133,39 +134,9 @@
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
-                <div class="col-lg-9 main-chart">
+                <div class="col-lg-12 main-chart">
                     @yield('content')
                 </div><!-- /col-lg-9 END SECTION MIDDLE -->
-                <div class="col-lg-3 ds">
-                    <!--COMPLETED ACTIONS DONUTS CHART-->
-                    <h3>{{ trans('settings.title.notifications') }}</h3>
-                    <!-- First Action -->
-                    <div class="desc">
-                        <div class="thumb">
-                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                        </div>
-                        <div class="details">
-                            <p><muted>{{ trans('settings.order.time_ago') }}</muted><br/>
-                                <a href="#">{{ trans('settings.order.senter') }}</a>{{ trans('settings.order.title') }}<br/>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- CALENDAR-->
-                    <div id="calendar" class="mb">
-                        <div class="panel green-panel no-margin">
-                            <div class="panel-body">
-                                <div id="date-popover" class="popover top">
-                                    <div class="arrow"></div>
-                                    <h3 class="popover-title"></h3>
-                                    <div id="date-popover-content" class="popover-content"></div>
-                                </div>
-                                <div id="my-calendar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / calendar -->
-                </div>
-                <!-- /col-lg-3 -->
             </div>
             <!--/row -->
         </section>
