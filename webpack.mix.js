@@ -16,3 +16,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.copyDirectory(['resources/assets/css'], 'public/css');
 mix.copyDirectory(['resources/assets/js/admin'], 'public/js/admin');
 mix.copyDirectory(['resources/assets/images'], 'public/images');
+mix.copyDirectory(['resources/assets/images'], 'public/images')
+   .copyDirectory(['resources/assets/js/user'], 'public/js/user');

@@ -6,18 +6,15 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title')</title>
-        
         @include('layouts.user.style')
         @section('style')
-        @show
-
-        @include('layouts.user.script')
-        @section('script')
-        @show
+            @show
+        {{ Html::script('assets/Hoang_library/user/js/jquery.min.js') }}
+        
     </head>
     <body>
         <!-- header -->
-        <div class="modal fade" id="myModal88" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+        <div class="modal fade" id="myLogin" tabindex="-1" role="dialog" aria-labelledby="myModal88"
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -25,7 +22,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         &times;</button>
                         <h4 class="modal-title" id="myModalLabel">
-                            Don't Wait, Login now!
+                            {{ trans('custom.login.title')}}
                         </h4>
                     </div>
                     <div class="modal-body modal-body-sub">
@@ -33,50 +30,52 @@
                             <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
                                 <div class="sap_tabs">
                                     <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
-                                        <ul>
-                                            <li class="resp-tab-item" aria-controls="tab_item-0"><span>Sign in</span></li>
-                                            <li class="resp-tab-item" aria-controls="tab_item-1"><span>Sign up</span></li>
-                                        </ul>
-                                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+                                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0" style="display: block">
                                             <div class="facts">
                                                 <div class="register">
-                                                    <form action="#" method="post">
-                                                        <input name="Email" placeholder="Email Address" type="text" required="">                        
-                                                        <input name="Password" placeholder="Password" type="password" required="">                                      
-                                                        <div class="sign-up">
-                                                            <input type="submit" value="Sign in"/>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
-                                            <div class="facts">
-                                                <div class="register">
-                                                    <form action="#" method="post">
-                                                        <input placeholder="Name" name="Name" type="text" required="">
-                                                        <input placeholder="Email Address" name="Email" type="email" required="">   
-                                                        <input placeholder="Password" name="Password" type="password" required="">  
-                                                        <input placeholder="Confirm Password" name="Password" type="password" required="">
-                                                        <div class="sign-up">
-                                                            <input type="submit" value="Create Account"/>
-                                                        </div>
-                                                    </form>
+                                                    {!! Form::open([
+                                                        'method' => 'POST',
+                                                        'route' => 'login',
+                                                        'id' => 'formLogin'
+                                                    ]) !!}
+                                                        
+                                                        {!! Form::label(
+                                                            'login_email',
+                                                            trans('custom.login.email')
+                                                        ) !!}
+
+                                                        {!! Form::text(
+                                                            'email',
+                                                            null,
+                                                            [
+                                                                'id' => 'login_email',
+                                                            ]
+                                                        ) !!}
+
+                                                        <p id = "errorEmailLogin" style="display:block;color:red;"></p>
+                                                        {!! Form::label(
+                                                        'login_password',
+                                                        trans('custom.login.password')
+                                                        ) !!}
+
+                                                        {!! Form::password(
+                                                        'password',
+                                                        [
+                                                            'id' => 'login_password',
+                                                        ]
+                                                        ) !!}
+
+                                                        <p id = "errorPasswordLogin" style="display:block;color:red;"></p>
+
+                                                        {!! Form::submit(trans('custom.login.login')) !!}
+
+                                                    {!! Form::close() !!}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{ Html::script('assets/Hoang_library/user/js/easyResponsiveTabs.js') }}
-                                <script type="text/javascript">
-                                    $(document).ready(function () {
-                                        $('#horizontalTab').easyResponsiveTabs({
-                                            type: 'default', //Types: default, vertical, accordion           
-                                            width: 'auto', //auto or any width like 600px
-                                            fit: true   // 100% fit in a container
-                                        });
-                                    });
-                                </script>
+                                
                                 <div id="OR" class="hidden-xs">
                                     OR
                                 </div>
@@ -85,7 +84,7 @@
                                 <div class="row text-center sign-with">
                                     <div class="col-md-12">
                                         <h3 class="other-nw">
-                                            Sign in with
+                                            {{ trans('custom.signin') }}
                                         </h3>
                                     </div>
                                     <div class="col-md-12">
@@ -103,13 +102,190 @@
                 </div>
             </div>
         </div>
-        <script>
-            $('#myModal88').modal('show');
-        </script>
+
+        <div class="modal fade" id="myRegister" tabindex="-1" role="dialog" aria-labelledby="myModal888"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            {{ trans('custom.register.title') }}
+                        </h4>
+                    </div>
+                    <div class="modal-body modal-body-sub">
+                        <div class="row">
+                            <div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2;padding-right:3em;">
+                                <div class="sap_tabs">
+                                    <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0" style="display: block">
+                                            <div class="facts">
+                                                <div class="register">
+                                                    {!! Form::open([
+                                                        'method' => 'POST',
+                                                        'route' => 'register',
+                                                        'id' => 'formRegister'
+                                                    ])!!}
+                                        
+                                                        {!! Form::label(
+                                                            'name',
+                                                            trans('custom.register.name')
+                                                        ) !!}
+                                        
+                                                        {!! Form::text(
+                                                            'nameRegister',
+                                                             null
+                                                        ) !!}
+                                        
+                                                        <p id = "errorNameRegister" style="display:block;color:red;"></p>
+                                            
+                                                        {!! Form::label(
+                                                            'email',
+                                                            trans('custom.register.email')
+                                                        ) !!}
+                                        
+                                                        {!! Form::text(
+                                                            'emailRegister',
+                                                             null
+                                                        ) !!}
+                                        
+                                                        <p id = "errorEmailRegister" style="display:block;color:red;"></p>
+                                                        
+                                                        {!! Form::label(
+                                                            'password',
+                                                            trans('custom.login.password')
+                                                        ) !!}
+
+                                                        {!! Form::password('passRegister') !!}
+
+                                                        <p id = "errorPasswordRegister" style="display:block;color:red;"></p>
+                                        
+                                                        {!! Form::label(
+                                                            'confirm_password',
+                                                            trans('custom.register.confirm_password')
+                                                        ) !!}
+                                                        
+                                                        {!! Form::password(
+                                                        'passRegister_confirmation',
+                                                        null,
+                                                        [
+                                                        'id' => 'passRegister-confirm'
+                                                        ]
+                                                        )!!}
+                                        
+                                                        {!! Form::submit(trans('custom.register.register')) !!}
+                                        
+                                                    {!! Form::close() !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="OR" class="hidden-xs">
+                                    {{ trans('custom.login.or') }}
+                                </div>
+                            </div>
+                            <div class="col-md-4 modal_body_right modal_body_right1">
+                                <div class="row text-center sign-with">
+                                    <div class="col-md-12">
+                                        <h3 class="other-nw">
+                                            {{ trans('custom.signin') }}
+                                        </h3>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <ul class="social">
+                                            <li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
+                                            <li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
+                                            <li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
+                                            <li class="social_behance"><a href="#" class="entypo-behance"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="header">
             <div class="container">
                 <div class="w3l_login">
-                    <a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                    @auth
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {{ HTML::linkRoute(
+                                'logout',
+                                trans('custom.logout'),
+                                null,
+                                [
+                                'id' => 'logout',
+                                ]
+                            ) }}
+
+                            {{ Form::open([
+                                'route' => 'logout',
+                                'method' => 'post',
+                                'id' => 'logout-form',
+                                'style' => 'display: none;'
+                            ])}}
+
+                            {{ Form::close() }}
+                        </div>
+                    </div>
+                    @endauth
+                    @guest
+                     
+                    </script>
+                        @if ($errors->has('email') || $errors->has('password')) 
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    $('#myLogin').modal('show');
+
+                                    var errorEmailLogin = "{{ $errors->first('email') }}";
+                                    var errorPasswordLogin = "{{ $errors->first('password') }}";
+
+                                     if (errorEmailLogin != ""){
+                                        $('#errorEmailLogin').html(errorEmailLogin).show();
+                                     }
+                                     if (errorPasswordLogin != ""){
+                                        $('#errorPasswordLogin').html(errorPasswordLogin).show();
+                                     }
+                                });   
+                            </script>
+                        @endif
+
+                        @if ($errors->has('nameRegister') || $errors->has('emailRegister') || 
+                        $errors->has('passRegister'))
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    $('#myRegister').modal('show');
+                                        var errorNameRegister = "{{ $errors->first('nameRegister') }}";
+                                        var errorEmailRegister = "{{ $errors->first('emailRegister') }}";
+                                        var errorPasswordRegister = "{{ $errors->first('passRegister') }}";
+
+                                        if (errorNameRegister != ""){
+                                            $('#errorNameRegister').html(errorNameRegister).show();
+                                        }
+                                         
+                                         if (errorEmailRegister != ""){
+                                            $('#errorEmailRegister').html(errorEmailRegister).show();
+                                        }
+                                         if (errorPasswordRegister != ""){
+                                            $('#errorPasswordRegister').html(errorPasswordRegister).show();
+                                        }
+                                });
+                            </script>
+                        @endif
+                    <a href="#Login" data-toggle="modal" data-target="#myLogin"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+
+                    <a href="#Register" data-toggle="modal" data-target="#myRegister"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
+                    @endguest
                 </div>
                 <div class="w3l_logo">
                     <h1><a href="index.html">Women's Fashion<span>For Fashion Lovers</span></a></h1>
@@ -127,11 +303,11 @@
                 <div class="cart box_1">
                     <a href="checkout.html">
                         <div class="total">
-                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> {{ trans('custom.cart.item') }})
                         </div>
                         <img src="images/bag.png" alt="" />
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">{{ trans('custom.cart.empty') }}</a></p>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -235,5 +411,8 @@
             </div>
         </div>
         <!-- //footer -->
+        @include('layouts.user.script')
+        @section('script')
+            @show
     </body>
 </html>

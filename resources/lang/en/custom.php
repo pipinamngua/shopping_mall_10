@@ -35,5 +35,37 @@ return [
     ],
     'login_admin' => [
         'fail' => 'You do not access admin page!!',
-    ]
+    ],
+    'login' => [
+        'title' => 'Don\'t Wait, Login now!',
+        'email' => 'Email',
+        'password' => 'Password',
+        'login' => 'Login',
+        'or' => 'OR',
+    ],
+    'register' => [
+        'title' => 'Don\'t Wait, Register now!',
+        'register' => 'Register',
+        'name' => 'Name',
+        'dob' => 'Date of birthday',
+        'email' => 'Email',
+        'gender' => 'Gender',
+        'phone' => 'Phone',
+        'avatar' => 'Avatar',
+        'confirm_password' => 'Confirm Password',
+    ],
+    'logout' => 'Logout',
+    'signin' => 'Sign in with',
+    'cart' => [
+        'empty' => 'Empty Cart',
+        'item' => 'items',
+    ],
+    'formLogin' => [
+        'login' => 'Login',
+        'email' => 'Email Address',
+        'password' => 'Password',
+        'remember' => 'Remember Me',
+        'forgot' => 'Forgot Your Password?',
+        'reset' => 'Reset Password',
+    ],
 ];

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Lang;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,13 +49,29 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
+        return Validator::make(
+            $data,
+            [
+                'nameRegister' => 'required|string|max:255',
+                'emailRegister' => 'required|string|email|max:255|unique:users,email',
+                'passRegister' => 'required|string|min:6|confirmed',
+            ],
+            [
+                'nameRegister.required' => Lang::get('validation.required'),
+                'nameRegister.string' => Lang::get('validation.string'),
+                'nameRegister.max' => Lang::get('validation.string', ['max' => 255]),
+                'emailRegister.required' => Lang::get('validation.required'),
+                'emailRegister.string' => Lang::get('validation.string'),
+                'emailRegister.max' => Lang::get('validation.string', ['max' => 255]),
+                'emailRegister.unique' => Lang::get('validation.unique'),
+                'passRegister.required' => Lang::get('validation.required'),
+                'passRegister.string' => Lang::get('validation.string'),
+                'passRegister.min' => Lang::get('validation.min.string', ['min' => 6]),
+                'passRegister.confirmed' => Lang::get('validation.confirmed'),
 
+            ]
+        );
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -63,10 +80,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $user = [];
+        $user = $this->infoDefault();
+        $user = array_push(
+            $user,
+            [
+                'name' => $data['nameRegister'],
+                'email' => $data['emailRegister'],
+                'password' => Hash::make($data['passRegister'])
+            ]
+        );
+        return User::create($user);
+    }
+
+    private function infoDefault()
+    {
+        return [
+            'dob' => config('custom.user.dob'),
+            'phone' => config('custom.user.phone'),
+            'gender' => config('custom.user.gender'),
+            'avatar' => config('custom.user.avatar'),
+            'credit_card' => config('custom.user.credit_card'),
+            'points' => config('custom.user.points'),
+            'role_id' => config('custom.user.role_id')
+        ];
     }
 }
