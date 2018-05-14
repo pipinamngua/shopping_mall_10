@@ -6,5 +6,6 @@
 
 @section('content')
     <div class="row mtbox">  
+    	
     </div>
 @endsection

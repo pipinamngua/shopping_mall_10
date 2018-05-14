@@ -43,4 +43,9 @@ class Product extends Model
     {
         return $this->belongsToMany(User::class, 'comments', 'product_id', 'user_id');
     }
+
+    public static function getProducts()
+    {
+        return static::all();
+    }
 }

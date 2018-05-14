@@ -5,6 +5,11 @@ return [
             'email' => 'E-Mail',
             'location' => 'Location',
             'note' => 'Notes',
+            'items' => '(x items)',
+            'btn_add_to_cart' => 'Add to cart',
+            'new_products' => 'New Products',
+            'new' => 'New',
+            'sale_off' => '50%',
         ],
         'user' => [
             'name_shop' => 'Model Fashion',
@@ -74,6 +79,9 @@ return [
         'homepage' => 'Home Shop',
         'profile' => 'Profile',
         'history' => 'History',
+        'or' => 'OR',
+        'message' => 'Don\'t Wait, Login now!',
+        'suggestion' => 'Login with',
     ],
     'order' => [
         'title' => 'Outline',
