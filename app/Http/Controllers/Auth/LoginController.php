@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Lang;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +37,25 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        $email = $this->username();
+        $this->validate(
+            $request,
+            [
+                $this->username() => 'required|string|email',
+                'password' => 'required|string|min:6',
+            ],
+            [
+                $email . '.required' => Lang::get('validation.required'),
+                $email . '.string' => Lang::get('validation.string'),
+                $email . '.email' => Lang::get('validation.email'),
+                'password.required' => Lang::get('validation.required'),
+                'password.string' => Lang::get('validation.string'),
+                'password.min' => Lang::get('validation.min.string', ['min' => 6]),
+            ]
+        );
     }
 }
