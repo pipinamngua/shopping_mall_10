@@ -1,17 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {
     protected $fillable = [
-    	'content',
-    	'type',
-    	'amount',
-    	'start',
-    	'end',
+        'content',
+        'type',
+        'amount',
+        'start',
+        'end',
     ];
 
     public function products()

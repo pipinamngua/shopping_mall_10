@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
     protected $fillable = [
-    	'product_id',
-    	'url',
-    	'main_image',
+        'product_id',
+        'url',
+        'main_image',
     ];
 }
