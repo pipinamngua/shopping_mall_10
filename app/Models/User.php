@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Auth;
+use Hash;
 
 class User extends Authenticatable
 {
@@ -34,5 +36,18 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function scopeChangePassword($query, $oldPassword, $newPassword)
+    {
+        $user = User::findOrFail(Auth::user()->id);
+        if (Hash::check($oldPassword, $user->password)) {
+            $user->password = Hash::make($newPassword);
+            $user->save();
+
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

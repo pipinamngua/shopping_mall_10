@@ -26,3 +26,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=> 'auth', 'prefix' => 'user', 'namespace' => 'User\Profile'], function () {
+    //User Profile
+    Route::resource('profile', 'ProfileController');
+    Route::get('changePassword', 'ProfileController@indexChangePassword')->name('changePass');
+    Route::post('changePassword', 'ProfileController@storeChangePassword')->name('storePass');
+});
