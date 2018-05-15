@@ -25,6 +25,8 @@ return [
         'delete_success' => 'Delete User Successfully',
         'user_table' => 'User Table',
         'edit_user' => 'Edit User',
+        'password_success' => 'Change password successfully',
+        'password_fail' => 'Change password fail'
     ],
     'form' => [
         'submit' => 'Submit',
@@ -64,8 +66,16 @@ return [
         'login' => 'Login',
         'email' => 'Email Address',
         'password' => 'Password',
+        'passwordNew' => 'New Password',
         'remember' => 'Remember Me',
         'forgot' => 'Forgot Your Password?',
         'reset' => 'Reset Password',
+        'changePassword' => 'Change Password'
     ],
+    'myAccount' => 'My Account',
+    'editUser' => 'Edit User',
+    'old_password' => 'Old Password',
+    'order' => [
+        'myOrder' => 'My Order',
+    ]
 ];

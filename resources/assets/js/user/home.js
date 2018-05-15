@@ -18,6 +18,3 @@ $('#logout').click(function(e) {
     e.preventDefault();
     $('#logout-form').submit();
 });
-
-$('#myLogin').modal('show');
-$('#myRegister').modal('show');

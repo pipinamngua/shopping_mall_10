@@ -47,9 +47,7 @@
                                                         {!! Form::text(
                                                             'email',
                                                             null,
-                                                            [
-                                                                'id' => 'login_email',
-                                                            ]
+                                                            ['id' => 'login_email']
                                                         ) !!}
 
                                                         <p id = "errorEmailLogin" style="display:block;color:red;"></p>
@@ -60,9 +58,7 @@
 
                                                         {!! Form::password(
                                                         'password',
-                                                        [
-                                                            'id' => 'login_password',
-                                                        ]
+                                                        ['id' => 'login_password']
                                                         ) !!}
 
                                                         <p id = "errorPasswordLogin" style="display:block;color:red;"></p>
@@ -169,9 +165,7 @@
                                                         {!! Form::password(
                                                         'passRegister_confirmation',
                                                         null,
-                                                        [
-                                                        'id' => 'passRegister-confirm'
-                                                        ]
+                                                        ['id' => 'passRegister-confirm']
                                                         )!!}
                                         
                                                         {!! Form::submit(trans('custom.register.register')) !!}
@@ -219,13 +213,19 @@
                         {{ Auth::user()->name }}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            
+                            {{ HTML::linkRoute(
+                                'profile.index',
+                                trans('custom.myAccount'),
+                                null,
+                                ['id' => 'myAccount']
+                            ) }}
+
                             {{ HTML::linkRoute(
                                 'logout',
                                 trans('custom.logout'),
                                 null,
-                                [
-                                'id' => 'logout',
-                                ]
+                                ['id' => 'logout']
                             ) }}
 
                             {{ Form::open([

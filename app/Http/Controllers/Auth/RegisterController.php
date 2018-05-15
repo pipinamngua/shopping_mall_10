@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -82,14 +82,10 @@ class RegisterController extends Controller
     {
         $user = [];
         $user = $this->infoDefault();
-        $user = array_push(
-            $user,
-            [
-                'name' => $data['nameRegister'],
-                'email' => $data['emailRegister'],
-                'password' => Hash::make($data['passRegister'])
-            ]
-        );
+        $user['name'] = $data['nameRegister'];
+        $user['email'] = $data['emailRegister'];
+        $user['password'] = Hash::make($data['passRegister']);
+
         return User::create($user);
     }
 
