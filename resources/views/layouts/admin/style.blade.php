@@ -1,0 +1,10 @@
+{{ Html::style('css/admin/bootstrap.css') }}
+{{ Html::style('css/admin/style.css') }}
+{{ Html::style('assets/Hoang_library/font-awesome/css/font-awesome.css') }}
+{{ Html::style('assets/Hoang_library/admin/css/bootstrap.css') }}
+{{ Html::style('assets/Hoang_library/admin/font-awesome/css/font-awesome.css') }}
+{{ Html::style('assets/Hoang_library/admin/css/zabuto_calendar.css') }}
+{{ Html::style('assets/Hoang_library/admin/js/gritter/css/jquery.gritter.css') }}
+{{ Html::style('assets/Hoang_library/admin/lineicons/style.css') }}    
+{{ Html::style('assets/Hoang_library/admin/css/style.css') }}
+{{ Html::style('assets/Hoang_library/admin/css/style-responsive.css') }}
