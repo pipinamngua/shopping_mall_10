@@ -16,7 +16,6 @@ class Order extends Model
         'status',
         'payment',
         'subtotal',
-        'endtotal',
     ];
 
     public function products()
