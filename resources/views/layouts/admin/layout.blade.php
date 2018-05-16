@@ -4,17 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dashboard">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('title')</title>
-
-    <!-- Styles -->
-    {{ Html::style('css/admin/bootstrap.css') }}
-    {{ Html::style('css/admin/style.css') }}
-    {{ Html::style('assets/Hoang_library/font-awesome/css/font-awesome.css') }}
-
+    @include('layouts.admin.style')
+    @section('style')
+        @show
+    
+    {{ Html::script('assets/Hoang_library/admin/js/chart-master/Chart.js') }}
 </head>
 <body>
     <section id="container" >
@@ -152,9 +149,8 @@
     </footer>
   <!--footer end-->
 </section>
-    
-    {{ Html::script('js/admin/common-scripts.js') }}
-    {{ Html::script('js/app.js') }}
-
+    @include('layouts.admin.script')
+    @section('script')
+        @show
 </body>
 </html>
