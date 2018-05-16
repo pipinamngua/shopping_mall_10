@@ -11,7 +11,7 @@ class Category extends Model
         'parent_id',
     ];
 
-    public function childs()
+    public function child()
     {
         return $this->hasMany(Category::class, 'parent_id', 'id');
     }
@@ -19,5 +19,22 @@ class Category extends Model
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public static function parents()
+    {
+        return static::where('parent_id', '=', 0)->pluck('name', 'id');
+    }
+
+    public static function categories()
+    {
+        $parents = self::parents();
+        $i = 0;
+        foreach ($parents as $key => $value) {
+            $categories[$i] = static::find($key)->child;
+            $i++;
+        }
+        
+        return $categories;
     }
 }

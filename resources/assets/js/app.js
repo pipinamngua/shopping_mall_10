@@ -7,7 +7,5 @@
 
 require('./bootstrap');
 require('jquery/dist/jquery.js');
+require('jquery/dist/jquery.min.js');
 require('jquery.scrollto/jquery.scrollTo.min.js');
-require('jquery.nicescroll/dist/jquery.nicescroll.js');
-require('flexslider/jquery.flexslider.js');
-require('dcjqaccordion/js/jquery.dcjqaccordion.2.7.js');

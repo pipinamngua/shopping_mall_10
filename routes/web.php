@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.user.layout');
-});
-Route::get('/admin', function () {
-    return view('layouts.admin.layout');
-});
-
+Route::get('/', 'GuestController@index');
+Route::get('/product/{product}', 'GuestController@show')->name('productdetail');
+Route::get('checkout', 'GuestController@checkout');
+Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     //Admin user
     Route::resource('user', 'UserController');
