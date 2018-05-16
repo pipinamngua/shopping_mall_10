@@ -31,3 +31,11 @@
     width: 200px;
     height: 200px;
 }
+
+#minusInput, #plusInput {
+    color: black;
+    font-size: 25px;
+}
+#closeSubmit {
+    border:none;
+}

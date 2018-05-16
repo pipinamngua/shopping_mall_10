@@ -61,6 +61,20 @@ return [
     'cart' => [
         'empty' => 'Empty Cart',
         'item' => 'items',
+        'contain' => 'Your shopping cart contains:',
+        'product' => 'Products',
+        'checkout' => 'Checkout',
+        'failIncre' => 'Do not increa quantity product',
+        'failDecre' => 'Do not decrea quantity product',
+        'bill' => 'My Bill',
+        'number' => 'Number',
+        'image' => 'Image',
+        'name' => 'Product Name',
+        'quantity' => 'Quantity',
+        'price' => 'Price',
+        'remove' => 'Remove',
+        'total' => 'Total',
+        'order' => 'Order'
     ],
     'formLogin' => [
         'login' => 'Login',
@@ -77,5 +91,5 @@ return [
     'old_password' => 'Old Password',
     'order' => [
         'myOrder' => 'My Order',
-    ]
+    ],
 ];

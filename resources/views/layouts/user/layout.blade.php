@@ -301,13 +301,11 @@
                     </div>
                 </div>
                 <div class="cart box_1">
-                    <a href="checkout.html">
-                        <div class="total">
-                            <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> {{ trans('custom.cart.item') }})
-                        </div>
+                    <a href="{{ route('cart') }}">
+                        {{ Cart::total() }}({{ Cart::count() }} {{ trans('custom.cart.item') }})
                         <img src="images/bag.png" alt="" />
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">{{ trans('custom.cart.empty') }}</a></p>
+                    <p>{!! Html::linkRoute('destroyCart',trans('custom.cart.empty')) !!}</p>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"> </div>
