@@ -41,3 +41,8 @@ Route::namespace('User')->group(function () {
     Route::post('destroyItem', 'CartController@destroy')->name('destroyItemCart');
     Route::get('destroyCart', 'CartController@destroyCart')->name('destroyCart');
 });
+
+Route::namespace('User')->group(function () {
+    Route::get('myorder', 'OrderController@create')->name('createOrder');
+    Route::post('myorder', 'OrderController@store')->name('orderStore');
+});

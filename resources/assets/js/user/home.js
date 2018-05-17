@@ -18,3 +18,13 @@ $('#logout').click(function(e) {
     e.preventDefault();
     $('#logout-form').submit();
 });
+
+$('#formCredit').hide();
+$(document).on('click', function() {
+    var payment = $('#formPayment1').val();
+    if (payment == 'creditcard'){
+        $('#formCredit').show();
+    }else if (payment == 'homepayment') {
+        $('#formCredit').hide();
+    }
+});

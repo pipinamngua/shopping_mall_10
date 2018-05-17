@@ -24,7 +24,7 @@
     border-top:1px solid #ccc;
 }
 
-#password-confirm, #password, #nameUser, #emailUser, #phoneUser, #creditUser {
+#password-confirm, #password, #nameUser, #emailUser, #phoneUser, #creditUser, #totalInput, #inputAddress, #endTotalInput, #discountInput {
     width: 100%;
 }
 #imageAvatar {

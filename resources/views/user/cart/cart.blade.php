@@ -21,6 +21,14 @@
             </i>
         </div>
         @endif
+
+        @if(Session::has('success'))
+        <div class="alert alert-success">
+            <i>
+                <p>{{ Session::get('success')}}</p>
+            </i>
+        </div>
+        @endif
         <div class="checkout-right">
             <table class="timetable_sub">
                 <thead>
@@ -113,7 +121,7 @@
                 </ul>
             </div>
             <div class="checkout-right-basket">
-                <a href="#"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>{{ trans('custom.cart.order') }}</a>
+                <a href="{{ route('createOrder') }}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>{{ trans('custom.cart.order') }}</a>
             </div>
             <div class="clearfix"> </div>
         </div>
