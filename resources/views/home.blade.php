@@ -48,7 +48,17 @@
                                             <h5><a href="{{ route('productdetail', ['product' => $product->id]) }}" class="item-name">{{ $product->name }}</a></h5>
                                             <div class="simpleCart_shelfItem">
                                                 <p><span>{{ '$'.$product->price_out }}</span> <i class="item_price">{{ '$'.$product->price_out }}</i></p>
-                                                <p><a class="item_add" href="#">{{ trans('settings.layout.homePage.btn_add_to_cart') }}</a></p>
+                                                <p>
+                                                    <span class="item_add">
+                                                        {!! Form::open([
+                                                            'method' => 'POST',
+                                                            'route' => 'storeCart',
+                                                        ]) !!}
+                                                        {!! Form::hidden('product_id',$product->id) !!}
+                                                        {!! Form::submit(trans('settings.layout.homePage.btn_add_to_cart'))!!}
+                                                        {!! Form::close() !!}
+                                                    </span>
+                                                </p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -87,7 +97,15 @@
                             <h5><a href="">{{ $product->name }}</a></h5>
                             <div class="simpleCart_shelfItem">
                                 <p><span>{{ $product->price_out }}</span> <i class="item_price">{{ $product->price_out }}/i></p>
-                                <p><a class="item_add" href="#">{{ trans('settings.layout.homePage.btn_add_to_cart') }}</a></p>
+                                <p>
+                                    {!! Form::open([
+                                        'method' => 'POST',
+                                        'route' => 'storeCart',
+                                    ]) !!}
+                                        {!! Form::hidden('product_id',$product->id) !!}
+                                        {!! Form::submit(trans('settings.layout.homePage.btn_add_to_cart',['class' => 'item_add']))!!}
+                                    {!! Form::close() !!}
+                                </p>
                             </div>
                         </div>
                     </div>

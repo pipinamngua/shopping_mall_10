@@ -10,6 +10,8 @@ return [
         "credit_card" => "00000000",
         "points" => 0,
         'role_id' => 2,
+        'status' => 1,
+        'user_id' => 0
     ],
     "form" => [
          'create' => 'create',
@@ -21,5 +23,10 @@ return [
     ],
     'pagination' => [
         'user_table' => 10,
+    ],
+    "order" => [
+        'payment' => 'payment',
+        'homepayment' => 'homepayment',
+        'creditcard' => 'creditcard'
     ],
 ];

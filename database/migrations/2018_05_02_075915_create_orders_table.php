@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('address');
-            $table->string('message');
+            $table->string('message')->nullable();
             $table->tinyInteger('status');
             $table->string('payment');
             $table->float('subtotal', 10, 2);

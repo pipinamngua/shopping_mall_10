@@ -74,7 +74,8 @@ return [
         'price' => 'Price',
         'remove' => 'Remove',
         'total' => 'Total',
-        'order' => 'Order'
+        'order' => 'Order',
+
     ],
     'formLogin' => [
         'login' => 'Login',
@@ -88,8 +89,20 @@ return [
     ],
     'myAccount' => 'My Account',
     'editUser' => 'Edit User',
+    'myOrder' => 'My Order',
+    'myBill' => 'My Bill',
     'old_password' => 'Old Password',
     'order' => [
         'myOrder' => 'My Order',
+        'fullname' => 'Full Name',
+        'address' => 'Address',
+        'total' => 'Total',
+        'payment' => 'Payment',
+        'homepayment' => 'Home Payment',
+        'creditcard' => 'Credit Card',
+        'endtotal' => 'End Total',
+        'discount' => 'Discount',
+        'success' => 'Create Order Successfully',
+        'message' => 'Message'
     ],
 ];
