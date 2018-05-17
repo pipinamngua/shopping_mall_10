@@ -23,10 +23,13 @@ return [
     ],
     'pagination' => [
         'user_table' => 10,
+        'order_table' => 10,
     ],
     "order" => [
         'payment' => 'payment',
         'homepayment' => 'homepayment',
-        'creditcard' => 'creditcard'
+        'creditcard' => 'creditcard',
+        'statusDeliveried' => 0,
+        'statusDelivering' => 1,
     ],
 ];
