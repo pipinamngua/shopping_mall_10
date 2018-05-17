@@ -45,7 +45,7 @@ class OrderController extends Controller
             
             $order_detail->save();
         }
-
+        Cart::destroy();
         Session::flash('success', trans('custom.order.success'));
 
         return redirect()->route('cart');
@@ -70,8 +70,8 @@ class OrderController extends Controller
         }
 
         if ($data['payment'] == config('custom.order.homepayment')) {
-            $order->payment = config('custom.order.payment');
-        } elseif ($data['payment'] == config('custom.order.credit_card')) {
+            $order->payment = config('custom.order.homepayment');
+        } else {
             $order->payment = $data['credit_card'];
         }
 

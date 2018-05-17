@@ -18,6 +18,11 @@ Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     //Admin user
     Route::resource('user', 'UserController');
+    //Order admin
+    Route::get('order', 'OrderController@index')->name('order');
+    Route::get('orderdetail/{id}', 'OrderController@show')->name('orderDetail');
+    Route::delete('order/{id}', 'OrderController@destroy')->name('destroyOrder');
+    Route::post('order/status/{status}/{id}', 'OrderController@changeStatus')->name('changeStatus');
 });
 
 Auth::routes();

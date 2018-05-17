@@ -8,3 +8,4 @@
 {{ Html::style('assets/Hoang_library/admin/lineicons/style.css') }}    
 {{ Html::style('assets/Hoang_library/admin/css/style.css') }}
 {{ Html::style('assets/Hoang_library/admin/css/style-responsive.css') }}
+{{ Html::style('css/admin/admin.css') }}
