@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Image::class, function (Faker $faker) {
+$factory->define(App\Models\Image::class, function (Faker $faker) {
     return [
         'product_id' => rand(1, 20),
         'url' => "picture.png",
