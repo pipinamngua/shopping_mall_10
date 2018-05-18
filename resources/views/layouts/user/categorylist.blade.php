@@ -9,6 +9,7 @@
                 @if (isset($categories[$i]) && !empty($categories[$i]))
                 @foreach($categories[$i] as $category)
                 <li><a href="#"> 
+                    {{ $category->name }}
                     @if (fmod($category->id, 3) == 0)
                         <span>{{ trans('settings.layout.homePage.new') }}</span>
                     @endif

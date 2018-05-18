@@ -118,5 +118,7 @@ return [
     */
 
     'attributes' => [],
-
+        'review' => [
+        'content_error' => 'please, dont sent a empty review',
+    ],
 ];
