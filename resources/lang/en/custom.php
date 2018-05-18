@@ -152,4 +152,16 @@ return [
         'edit' => 'Edit Discount Successfully',
         'delete' => 'Delete Disocunt Successfully',
     ],
+    'orderUser' => [
+        'title' => 'Order ',
+        'productName' => 'Product Name',
+        'price' => 'Price',
+        'qty' => 'Quantity',
+        'total' => 'Total',
+        'orderList' => 'List Order',
+        'dateOrder' => 'Date Order',
+        'action' => 'Action',
+        'detail' => 'Detail',
+        'myOrderDetail' => 'My Order Detail',
+    ],
 ];

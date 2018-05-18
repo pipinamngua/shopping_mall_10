@@ -13,7 +13,7 @@
                 <ul>
                     <li>{!! Html::linkRoute('profile.index', trans('custom.myAccount')) !!}</li>
                     <li>{!! Html::linkRoute('changePass', trans('custom.formLogin.changePassword')) !!}</li>
-                    <li>{!! Html::link('#', trans('custom.order.myOrder')) !!}</li>
+                    <li>{!! Html::linkRoute('indexOrderUser', trans('custom.order.myOrder')) !!}</li>
                 </ul>
                 <img src="" alt="">
             </div>
