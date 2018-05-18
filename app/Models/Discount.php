@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Discount extends Model
 {
     protected $fillable = [
-        'content',
-        'type',
-        'amount',
+        'name',
         'start',
         'end',
     ];
