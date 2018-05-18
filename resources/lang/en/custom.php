@@ -137,5 +137,19 @@ return [
         'phone' => 'Phone:',
         'address' => 'Address:',
         'email' => 'Email:',
-    ]
+    ],
+    'discountAdmin' => [
+        'title' => 'Discount Table',
+        'id' => 'ID',
+        'name' => 'Name',
+        'start' => 'Start',
+        'end' => 'End',
+        'action' => 'Action',
+        'start' => 'Start',
+        'end' => 'End',
+        'create_new_discount' => 'Create New Discount',
+        'create' => 'Create New Discount Successfully',
+        'edit' => 'Edit Discount Successfully',
+        'delete' => 'Delete Disocunt Successfully',
+    ],
 ];
