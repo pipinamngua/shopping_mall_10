@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware'=> 'auth', 'prefix' => 'user', 'namespace' => 'User\Profile'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'user', 'namespace' => 'User\Profile'], function () {
     //User Profile
     Route::resource('profile', 'ProfileController');
     Route::get('changePassword', 'ProfileController@indexChangePassword')->name('changePass');
@@ -45,6 +45,7 @@ Route::namespace('User')->group(function () {
     Route::post('decrement/{id}', 'CartController@decrementQty')->name('decrementQty');
     Route::post('destroyItem', 'CartController@destroy')->name('destroyItemCart');
     Route::get('destroyCart', 'CartController@destroyCart')->name('destroyCart');
+    Route::get('product/{product}', 'ProductController@show')->name('show_pdetail');
 });
 
 Route::namespace('User')->group(function () {

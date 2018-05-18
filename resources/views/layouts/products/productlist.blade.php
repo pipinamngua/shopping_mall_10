@@ -16,7 +16,7 @@
             </ul>
         </div>
     </div>
-    <h5><a href="{{ route('productdetail', ['product' => $product->id]) }}" class="item-name">{{ $product->name }}</a></h5>
+    <h5><a href="{{ route('show_pdetail', ['product' => $product->id]) }}" class="item-name">{{ $product->name }}</a></h5>
     <div class="simpleCart_shelfItem">
         <p><span>{{ '$' . $product->price_out }}</span> <i class="item_price">{{ '$' . $product->price_out }}</i></p>
         <p><a class="item_add" href="#">{{ trans('settings.layout.homePage.btn_add_to_cart') }}</a></p>

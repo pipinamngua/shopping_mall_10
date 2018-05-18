@@ -13,14 +13,12 @@ class GuestController extends Controller
     {   
         $firstProduct = Product::where('category_id', 5);
         
-        return view('home', [
-            'firstProduct' => $firstProduct,
-        ]);
+        return view('home', compact('firstProduct'));
     }
 
     public function show(Product $product)
     {
-        return view('user.productdetail', [
+        return view('user.products.productdetail', [
             'product' => $product,
         ]);
     }
