@@ -115,6 +115,29 @@
             </div>
         </div>
     </div>
+    @if (Session::has('fail'))
+            <div class="modal fade" id="notiLogin" tabindex="-1" role="dialog" aria-labelledby="myModal88"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;</button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            {{ trans('custom.middleware.noti')}}
+                        </h4>
+                    </div>
+                    <div class="modal-body modal-body-sub">
+                        <div class="row">
+                            <div class="alert alert-danger">
+                                <strong>{{ Session::get('fail') }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
 @endsection
 
 @section('script')

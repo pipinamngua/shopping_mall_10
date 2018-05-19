@@ -15,7 +15,7 @@ Route::get('/', 'GuestController@index');
 Route::get('/product/{product}', 'GuestController@show')->name('productdetail');
 Route::get('checkout', 'GuestController@checkout');
 Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'checkAdminLogin'], function () {
     //Admin user
     Route::resource('user', 'UserController');
     //Order admin
@@ -31,7 +31,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'user', 'namespace' => 'User\Profile'], function () {
+Route::group(['middleware' => 'checkAccessProfile', 'prefix' => 'user', 'namespace' => 'User\Profile'], function () {
     //User Profile
     Route::resource('profile', 'ProfileController');
     Route::get('changePassword', 'ProfileController@indexChangePassword')->name('changePass');

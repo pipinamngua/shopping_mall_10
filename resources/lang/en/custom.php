@@ -164,4 +164,10 @@ return [
         'detail' => 'Detail',
         'myOrderDetail' => 'My Order Detail',
     ],
-];
+    'middleware' => [
+        'loginAdmin' => 'You have to login to authenticate.',
+        'noti' => 'Notification',
+        'admin' => 'You are\'t admin, you can\'t access admin site.',
+        'profile' => 'You have to login.',
+    ],
+    ];
