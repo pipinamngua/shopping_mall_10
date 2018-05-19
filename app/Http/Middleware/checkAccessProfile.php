@@ -6,7 +6,7 @@ use Closure;
 use Auth;
 use Session;
 
-class checkAdminLogin
+class checkAccessProfile
 {
     /**
      * Handle an incoming request.
@@ -18,13 +18,10 @@ class checkAdminLogin
     public function handle($request, Closure $next)
     {
         if (!Auth::check()) {
-            Session::flash('fail', trans('custom.middleware.loginAdmin'));
-            return redirect()->route('home');
-        } elseif (Auth::check() && Auth::user()->role_id != 1) {
-            Session::flash('fail', trans('custom.middleware.admin'));
+            Session::flash('fail', trans('custom.middleware.profile'));
             return redirect()->route('home');
         }
-
+        
         return $next($request);
     }
 }
