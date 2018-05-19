@@ -329,8 +329,7 @@
                             <!-- Mega Menu -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('settings.layout.user.products') }} <b class="caret"></b></a>
-                                <ul class="dropdown-menu multi-column columns-3">
-                                </ul>
+                                @include('layouts.user.categorylist')
                             </li>
                             <li><a href="#">{{ trans('settings.layout.user.news') }}</a></li>
                             <li><a href="s#">{{ trans('settings.layout.user.history') }}</a></li>

@@ -17,12 +17,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        view()->composer(['layouts.user.categorylist', 'home'], function($view) {
+        view()->composer('layouts.user.categorylist', function($view) {
             $view->with('parents', Category::parents());
             $view->with('categories', Category::categories());
+        });
+        view()->composer('home', function($view) {
             $view->with('products', Product::getProducts());
         });
-        // view()->composer('layouts.products.productlist')
     }
 
     /**

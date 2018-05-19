@@ -23,8 +23,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('orderdetail/{id}', 'OrderController@show')->name('orderDetail');
     Route::delete('order/{id}', 'OrderController@destroy')->name('destroyOrder');
     Route::post('order/status/{status}/{id}', 'OrderController@changeStatus')->name('changeStatus');
-    //Discount admin
-    Route::resource('discount', 'DiscountController');
 });
 
 Auth::routes();
@@ -48,6 +46,7 @@ Route::namespace('User')->group(function () {
     Route::post('destroyItem', 'CartController@destroy')->name('destroyItemCart');
     Route::get('destroyCart', 'CartController@destroyCart')->name('destroyCart');
     Route::get('product/{product}', 'ProductController@show')->name('show_pdetail');
+    Route::post('review', 'CommentController@store')->name('review');
 });
 
 Route::namespace('User')->group(function () {
