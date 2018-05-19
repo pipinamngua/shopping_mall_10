@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user', 'namespace' => 'User\P
     Route::resource('profile', 'ProfileController');
     Route::get('changePassword', 'ProfileController@indexChangePassword')->name('changePass');
     Route::post('changePassword', 'ProfileController@storeChangePassword')->name('storePass');
+    Route::get('userorder', 'OrderController@index')->name('indexOrderUser');
+    Route::post('orderDetail/{id}', 'OrderController@getOrderDetail')->name('orderDetailUser');
 });
 
 //Cart
