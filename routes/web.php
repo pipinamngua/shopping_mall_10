@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('orderdetail/{id}', 'OrderController@show')->name('orderDetail');
     Route::delete('order/{id}', 'OrderController@destroy')->name('destroyOrder');
     Route::post('order/status/{status}/{id}', 'OrderController@changeStatus')->name('changeStatus');
+    //Discount admin
+    Route::resource('discount', 'DiscountController');
 });
 
 Auth::routes();
