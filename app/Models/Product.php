@@ -8,15 +8,13 @@ class Product extends Model
 {
     protected $fillable = [
         'name',
-        'slug',
         'category_id',
         'supplier_id',
         'price_in',
         'price_out',
         'description',
-        'quanlity',
+        'quantity',
         'status',
-        'comments',
     ];
 
     public function images()

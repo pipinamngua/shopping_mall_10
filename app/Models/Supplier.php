@@ -17,4 +17,9 @@ class Supplier extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public static function getName()
+    {
+        return static::pluck('name', 'id');
+    }
 }

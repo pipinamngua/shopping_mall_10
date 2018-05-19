@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Category;
+use App\Models\Supplier;
 use App\Models\Product;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('home', function($view) {
             $view->with('firstProducts', Category::getfirstProducts());
             $view->with('products', Product::getProducts());
+        });
+        view()->composer('admin.product.*', function($view) {
+            $view->with('categories', Category::getName());
+            $view->with('suppliers', Supplier::getName());
         });
     }
 

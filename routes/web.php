@@ -15,7 +15,8 @@ Route::get('/', 'GuestController@index');
 Route::get('/product/{product}', 'GuestController@show')->name('productdetail');
 Route::get('checkout', 'GuestController@checkout');
 Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'checkAdminLogin',
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'checkAdminLogin',  
     function () {
     //Admin user
     Route::resource('user', 'UserController');
@@ -28,6 +29,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'che
     Route::resource('discount', 'DiscountController');
     Route::resource('category', 'CategoryController');
     Route::resource('supplier', 'SupplierController');
+    Route::resource('product', 'ProductController');
+    // Route::get('product', 'ProductController@index')->name('product.index');
+    // Route::get('product/create', 'ProductController@create')->name('product.create');
+    // Route::get('product/{id}', 'ProductController@show')->name('product.show');
+    // Route::post('product', 'ProductController@store')->name('product.store');
+    // Route::post('product/{id}', 'ProductController@update')->name('product.update');
 });
 
 Auth::routes();
@@ -60,3 +67,4 @@ Route::namespace('User')->group(function () {
     Route::get('myorder', 'OrderController@create')->name('createOrder');
     Route::post('myorder', 'OrderController@store')->name('orderStore');
 });
+
