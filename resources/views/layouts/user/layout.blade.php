@@ -206,6 +206,13 @@
 
         <div class="header">
             <div class="container">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ trans('custom.language.language') }} <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="{{ route('user.change-language', ['en']) }}">{{ trans('custom.language.english') }}</a></li>
+                        <li><a href="{{ route('user.change-language', ['vi']) }}">{{ trans('custom.language.vietnam') }}</a></li>
+                    </ul>
+                </div>
                 <div class="w3l_login">
                     @auth
                     <div class="dropdown">
@@ -288,7 +295,7 @@
                     @endguest
                 </div>
                 <div class="w3l_logo">
-                    <h1><a href="index.html">Women's Fashion<span>For Fashion Lovers</span></a></h1>
+                    <h1><a href="{{ route('home') }}">Women's Fashion<span>For Fashion Lovers</span></a></h1>
                 </div>
                 <div class="search">
                     <input class="search_box" type="checkbox" id="search_box">
