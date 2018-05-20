@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Lang;
 
-class CommentRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,14 +25,16 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required',
+            'name' => 'required',
+            'parent_id' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'content.required' => Lang::get('validation.comment.content_error'),            
+            'name.required' => Lang::get('validation.required'),
+            'parent_id.required' => Lang::get('validation.required'),
         ];
     }
 }

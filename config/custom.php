@@ -24,6 +24,9 @@ return [
     'pagination' => [
         'user_table' => 10,
         'order_table' => 10,
+        'category_table' => 10,
+        'supplier_table' => 10,
+        'product_table' => 10,
     ],
     "order" => [
         'payment' => 'payment',
