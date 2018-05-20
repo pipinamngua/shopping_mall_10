@@ -28,6 +28,14 @@ class GuestController extends Controller
         return view('layouts.products.productlist', compact('products'));
     }
 
+    public function getProductList($id)
+    {
+        $category = Category::find($id);
+        $products = $category->products;
+
+        return view('user.products.productlist', compact('category', 'products')); 
+    }
+
     public function checkout() 
     {
         return view('user.checkout');
