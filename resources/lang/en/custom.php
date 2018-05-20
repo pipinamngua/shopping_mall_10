@@ -244,4 +244,9 @@ return [
         'english' => 'English',
         'vietnam' => 'Vietnamese'
     ],
+    'sort' => [
+        'default' => 'Default sort',
+        'lowToHigh' => 'Sort by price: low to high',
+        'hightToLow' => 'Sort by price: high to low',
+    ],
 ];

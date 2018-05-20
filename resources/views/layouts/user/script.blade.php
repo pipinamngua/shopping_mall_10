@@ -9,3 +9,5 @@
 {{ Html::script('assets/Hoang_library/user/js/easyResponsiveTabs.js') }}
 <!-- //end-smooth-scrolling -->
 {{ Html::script('js/user/home.js') }}
+
+{{ Html::script('js/user/jquery.flexisel.js') }}

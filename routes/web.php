@@ -20,7 +20,7 @@ Route::group(['middleware' => 'locale'], function () {
     Route::get('checkout', 'GuestController@checkout');
     Route::get('category/{id}', 'GuestController@getProductList')->name('category');
     Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
-
+    Route::post('category/product-list/{string}', 'GuestController@getProductListSort');
     Route::group(
         ['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'checkAdminLogin'],
         function () {
