@@ -28,3 +28,5 @@ $(document).on('click', function() {
         $('#formCredit').hide();
     }
 });
+
+$('#notiLogin').modal('show');

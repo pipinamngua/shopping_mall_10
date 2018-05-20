@@ -39,8 +39,8 @@
                     <td>{{ $item->address }}</td>
                     <td>{{ $item->message }}</td>
                     <td>{{ $item->payment }}</td>
-                    <td>{{ number_format($item->subtotal, 2, ',', '.') }}</td>
-                    <td>{{ number_format($item->endtotal, 2, ',', '.') }}</td>
+                    <td>{{ number_format($item->subtotal, 2, '.', ',') }}</td>
+                    <td>{{ number_format($item->endtotal, 2, '.', ',') }}</td>
                     <td>{{ $item->created_at }}</td>
                     <td>
                         @if ($item->status == config('custom.order.statusDelivering'))

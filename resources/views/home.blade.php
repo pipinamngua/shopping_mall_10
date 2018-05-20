@@ -4,6 +4,16 @@
     {{ trans('settings.title.homepage') }}
 @endsection
 
+@section('slide')
+<!-- banner -->
+<div class="banner">
+    <div class="container">
+        <h3>{{ trans('settings.layout.user.pre_title') }} <span>{{ trans('settings.layout.user.suf_title') }}</span></h3>
+    </div>
+</div>
+<!-- //banner -->
+@endsection
+
 @section('content')
     <div class="container">
         <div class="col-md-5 wthree_banner_bottom_left">

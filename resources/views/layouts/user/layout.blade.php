@@ -302,7 +302,7 @@
                 </div>
                 <div class="cart box_1">
                     <a href="{{ route('cart') }}">
-                        {{ Cart::total() }}({{ Cart::count() }} {{ trans('custom.cart.item') }})
+                        {{ number_format(Cart::total(), 2, '.', ',') }}({{ Cart::count() }} {{ trans('custom.cart.item') }})
                         <img src="images/bag.png" alt="" />
                     </a>
                     <p>{!! Html::linkRoute('destroyCart',trans('custom.cart.empty')) !!}</p>
@@ -339,13 +339,7 @@
             </div>
         </div>
         <!-- //header -->
-        <!-- banner -->
-        <div class="banner">
-            <div class="container">
-                <h3>{{ trans('settings.layout.user.pre_title') }} <span>{{ trans('settings.layout.user.suf_title') }}</span></h3>
-            </div>
-        </div>
-        <!-- //banner -->
+        @yield('slide')
         <div class="banner-bottom">
             @yield('content')
         </div>
