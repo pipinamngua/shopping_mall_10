@@ -1,7 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('title')
-    {{ trans('settings.category.title') }}
+    {{ trans('custom.category.table') }}
 @endsection
 
 @section('content')

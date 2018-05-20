@@ -1,7 +1,7 @@
 @extends('layouts.admin.layout')
 
 @section('title')
-    {{ trans('settings.supplier.title') }}
+    {{ trans('custom.supplier.table') }}
 @endsection
 
 @section('content')

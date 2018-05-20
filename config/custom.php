@@ -21,7 +21,7 @@ return [
         'avatar_default' => 'storage/images/avatar/unknown.png',
         'path_avatar' => 'storage/images/avatar',
         'path_default' => 'storage/images/product/unknown.png',
-        'path_product' => 'storage/images/product'
+        'path_product_img' => 'storage/images/product',
     ],
     'pagination' => [
         'user_table' => 10,
@@ -38,6 +38,7 @@ return [
         'statusDelivering' => 1,
     ],
     'product' => [
+        'img' => 'unknown.png',
         'statusNew' => 1,
         'statusOld' => 2,
         'statusTrend' => 3,

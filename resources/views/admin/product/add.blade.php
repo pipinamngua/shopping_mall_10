@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row mt">
-        <div class="col-lg-12">
+        <div class="col-7 col-lg-8">
             <div class="form-panel">
                 <h4 class="mb"><i class="fa fa-angle-right">{{ trans('custom.product.title', ['action' => 'Add a new']) }}</i></h4>
                 {!! Form::open(
@@ -15,6 +15,7 @@
                     'class' => 'form-horizontal style-form',
                     'enctype' => 'multipart/form-data',
                     'id' => 'add-product',
+                    'name' => 'form_add',
                 ]
                 ) !!}
                 {!! Form::hidden('formType','create') !!}
@@ -24,7 +25,7 @@
                         trans('custom.product.name'),
                         ['class' => 'col-sm-2 col-sm-2 control-label',]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::text(
                             'name',
                             null,
@@ -37,6 +38,8 @@
                         {!! $errors->first('name', '<p style="color:red">:message</p>') !!}
                     </div>
                 </div>
+                
+
 
                 <div class="form-group">
                     {!! Form::label(
@@ -46,7 +49,7 @@
                             'class' => 'col-sm-2 col-sm-2 control-label',
                         ]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::select(
                             'category_id',
                             $categories,
@@ -68,7 +71,7 @@
                             'class' => 'col-sm-2 col-sm-2 control-label',
                         ]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::select(
                             'supplier_id',
                             $suppliers,
@@ -88,7 +91,7 @@
                         trans('custom.product.price_in'),
                         ['class' => 'col-sm-2 col-sm-2 control-label',]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::text(
                             'price_in',
                             null,
@@ -108,7 +111,7 @@
                         trans('custom.product.price_out'),
                         ['class' => 'col-sm-2 col-sm-2 control-label',]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::text(
                             'price_out',
                             null,
@@ -128,7 +131,7 @@
                         trans('custom.product.description'),
                         ['class' => 'col-sm-2 col-sm-2 control-label',]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::text(
                             'description',
                             null,
@@ -150,7 +153,7 @@
                             'class' => 'col-sm-2 col-sm-2 control-label',
                         ]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::select(
                             'status',
                             [
@@ -174,7 +177,7 @@
                         trans('custom.product.quantity'),
                         ['class' => 'col-sm-2 col-sm-2 control-label',]
                     ) !!}
-                    <div class="col-sm-5">
+                    <div class="col-sm-8">
                         {!! Form::text(
                             'quantity',
                             null,
@@ -196,8 +199,8 @@
                             'class' => 'col-sm-2 col-sm-2 control-label',
                         ]
                      ) !!}
-                    <div class="col-sm-5">
-                    {!! Form::file('images') !!}
+                    <div class="col-sm-8">
+                    {{ Form::file('images[]', ['multiple' => true,  'id' => 'images']) }}
                     </div>
                 </div>
 
@@ -218,5 +221,15 @@
                 {!! Form::close() !!}
             </div>
         </div>     
+        <div class="col-5 col-lg-4" id="div_img">
+
+            <div class="form-panel">
+                <img class="group list-group-image" id="show_img" alt="">
+            </div>
+        </div>
     </div>
+@endsection
+
+@section('script')
+    {{ Html::script('js/admin/script.js') }}
 @endsection

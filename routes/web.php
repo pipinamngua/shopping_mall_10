@@ -24,6 +24,7 @@ Route::group(['middleware' => 'locale'], function () {
     Route::group(
         ['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'checkAdminLogin'],
         function () {
+            Route::get('/', 'AdminController@index');
         //Admin user
             Route::resource('user', 'UserController');
         //Order admin
