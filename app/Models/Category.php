@@ -45,4 +45,9 @@ class Category extends Model
         
         return $firstProducts; 
     }
+
+    public static function getName()
+    {
+        return static::pluck('name', 'id');
+    }
 }

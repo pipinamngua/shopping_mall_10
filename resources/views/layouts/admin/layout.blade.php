@@ -96,8 +96,8 @@
                 </li>
                 <li class="sub-menu">
                     <a href="#" >
-                        <i class="fa fa-book">{{ trans('settings.layout.admin.products') }}</i>
-                        <span></span>
+                        <i class="fa fa-book"></i>
+                        <span>{{ trans('settings.layout.admin.products') }}</span>
                     </a>
                     <ul class="sub">
                         <li><a href="#">{{ trans('settings.layout.admin.btn_view') }}</a></li>
@@ -130,12 +130,7 @@
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
-            <div class="row">
-                <div class="col-lg-12 main-chart">
-                    @yield('content')
-                </div><!-- /col-lg-9 END SECTION MIDDLE -->
-            </div>
-            <!--/row -->
+            @yield('content')
         </section>
     </section>
     <!--footer start-->
