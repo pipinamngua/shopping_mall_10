@@ -11,9 +11,7 @@ class GuestController extends Controller
 {
     public function index()
     {   
-        $firstProduct = Product::where('category_id', 5);
-        
-        return view('home', compact('firstProduct'));
+        return view('home');
     }
 
     public function show(Product $product)

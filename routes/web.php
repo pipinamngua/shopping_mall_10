@@ -15,7 +15,7 @@ Route::get('/', 'GuestController@index');
 Route::get('/product/{product}', 'GuestController@show')->name('productdetail');
 Route::get('checkout', 'GuestController@checkout');
 Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'checkAdminLogin', 
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'checkAdminLogin',
     function () {
     //Admin user
     Route::resource('user', 'UserController');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models; 
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,5 +36,13 @@ class Category extends Model
         }
         
         return $categories;
+    }
+
+    public static function getfirstProducts()
+    {
+        $category = static::where('parent_id', '!=', 0)->first();
+        $firstProducts = $category->products;
+        
+        return $firstProducts; 
     }
 }
