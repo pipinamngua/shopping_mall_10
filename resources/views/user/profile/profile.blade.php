@@ -15,7 +15,6 @@
                     <li>{!! Html::linkRoute('changePass', trans('custom.formLogin.changePassword')) !!}</li>
                     <li>{!! Html::linkRoute('indexOrderUser', trans('custom.order.myOrder')) !!}</li>
                 </ul>
-                <img src="" alt="">
             </div>
             <div class="col-md-9 contact-left">
                 <h4>{{ trans('custom.editUser') }}</h4>

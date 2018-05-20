@@ -13,7 +13,7 @@
                 <ul>
                     <li>{!! Html::linkRoute('profile.index', trans('custom.myAccount')) !!}</li>
                     <li>{!! Html::linkRoute('changePass', trans('custom.formLogin.changePassword')) !!}</li>
-                    <li>{!! Html::linkRoute('indexOrderUser', trans('custom.order.myOrderDetail')) !!}</li>
+                    <li>{!! Html::linkRoute('indexOrderUser', trans('custom.order.myOrder')) !!}</li>
                 </ul>
             </div>
             <div class="col-md-9 contact-left">

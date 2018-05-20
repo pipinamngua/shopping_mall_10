@@ -11,7 +11,7 @@
                             @foreach($comments as $comment)
                                 <div class="additional_info_sub_grids">
                                     <div class="col-xs-2 additional_info_sub_grid_left">
-                                        <img src="{{ asset('assets/Hoang_library/user/images/1.png') }}" alt=" " class="img-responsive" />
+                                        <img src="{{ asset(config('custom.image.path_avatar') . '/' . $comment->user->avatar) }}" alt=" " class="img-responsive" />
                                     </div>
                                     <div class="col-xs-10 additional_info_sub_grid_right">
                                         <div class="additional_info_sub_grid_rightl">

@@ -17,26 +17,24 @@ Route::get('checkout', 'GuestController@checkout');
 Route::get('category/{id}', 'GuestController@getProductList')->name('category');
 Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'checkAdminLogin',  
+Route::group(
+    ['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'checkAdminLogin'],
     function () {
     //Admin user
-    Route::resource('user', 'UserController');
+        Route::resource('user', 'UserController');
     //Order admin
-    Route::get('order', 'OrderController@index')->name('order');
-    Route::get('orderdetail/{id}', 'OrderController@show')->name('orderDetail');
-    Route::delete('order/{id}', 'OrderController@destroy')->name('destroyOrder');
-    Route::post('order/status/{status}/{id}', 'OrderController@changeStatus')->name('changeStatus');
+        Route::get('order', 'OrderController@index')->name('order');
+        Route::get('orderdetail/{id}', 'OrderController@show')->name('orderDetail');
+        Route::delete('order/{id}', 'OrderController@destroy')->name('destroyOrder');
+        Route::post('order/status/{status}/{id}', 'OrderController@changeStatus')->name('changeStatus');
     //Discount admin
-    Route::resource('discount', 'DiscountController');
-    Route::resource('category', 'CategoryController');
-    Route::resource('supplier', 'SupplierController');
-    Route::resource('product', 'ProductController');
-    // Route::get('product', 'ProductController@index')->name('product.index');
-    // Route::get('product/create', 'ProductController@create')->name('product.create');
-    // Route::get('product/{id}', 'ProductController@show')->name('product.show');
-    // Route::post('product', 'ProductController@store')->name('product.store');
-    // Route::post('product/{id}', 'ProductController@update')->name('product.update');
-});
+        Route::resource('discount', 'DiscountController');
+        Route::resource('category', 'CategoryController');
+        Route::resource('supplier', 'SupplierController');
+        Route::resource('product', 'ProductController');
+    }
+);
+
 
 Auth::routes();
 
@@ -68,4 +66,3 @@ Route::namespace('User')->group(function () {
     Route::get('myorder', 'OrderController@create')->name('createOrder');
     Route::post('myorder', 'OrderController@store')->name('orderStore');
 });
-

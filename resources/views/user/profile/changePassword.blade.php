@@ -13,9 +13,8 @@
                 <ul>
                     <li><li>{!! Html::linkRoute('profile.index', trans('custom.myAccount')) !!}</li></li>
                     <li>{!! Html::linkRoute('changePass', trans('custom.formLogin.changePassword')) !!}</li>
-                    <li>{!! Html::link('#',trans('custom.order.myOrder')) !!}</li>
+                    <li>{!! Html::linkRoute('indexOrderUser',trans('custom.order.myOrder')) !!}</li>
                 </ul>
-                <img src="" alt="">
             </div>
             <div class="col-md-9 contact-left">
                 <h4>{{ trans('custom.formLogin.changePassword') }}</h4>
