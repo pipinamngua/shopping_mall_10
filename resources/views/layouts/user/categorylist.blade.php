@@ -8,7 +8,7 @@
                 <h6>{{ $value }}</h6>
                 @if (isset($categories[$i]) && !empty($categories[$i]))
                 @foreach($categories[$i] as $category)
-                <li><a href="#"> 
+                <li><a href="{{ route('category', ['id' => $category->id]) }}"> 
                     {{ $category->name }}
                     @if (fmod($category->id, 3) == 0)
                         <span>{{ trans('settings.layout.homePage.new') }}</span>

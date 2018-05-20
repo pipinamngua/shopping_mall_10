@@ -14,6 +14,7 @@
 Route::get('/', 'GuestController@index');
 Route::get('/product/{product}', 'GuestController@show')->name('productdetail');
 Route::get('checkout', 'GuestController@checkout');
+Route::get('category/{id}', 'GuestController@getProductList')->name('category');
 Route::post('/category/{id}', 'GuestController@getProductsOfCategory');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], 'middleware' => 'checkAdminLogin',  

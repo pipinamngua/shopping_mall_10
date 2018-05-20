@@ -10,6 +10,7 @@ return [
             'new_products' => 'New Products',
             'new' => 'New',
             'sale_off' => '50%',
+            'category_name' => ':name',
         ],
         'user' => [
             'name_shop' => 'Model Fashion',
