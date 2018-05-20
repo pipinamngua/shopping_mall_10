@@ -182,7 +182,7 @@ return [
         'name' => 'Category Name',
         'parent' => 'Parent',
         'update_at' => 'Update At',
-        'action' => 'Action', 
+        'action' => 'Action',
         'name_text' => 'Name of Category',
         'select_parent' => 'Choose a parent',
         'create_success' => 'Create New Category Successfully',
@@ -202,7 +202,7 @@ return [
         'email' => 'Email',
         'email_text' => 'email of Supplier supplier@gmail.com',
         'update_at' => 'Update At',
-        'action' => 'Action', 
+        'action' => 'Action',
         'name_text' => 'Name of Supplier',
         'select_parent' => 'Choose a parent',
         'create_success' => 'Create New Supplier Successfully',
@@ -239,5 +239,9 @@ return [
         'edit_success' => 'Edit Product Successfully',
         'delete_success' => 'Delete Product Successfully',
     ],
+    'language' => [
+        'language' => 'Language',
+        'english' => 'English',
+        'vietnam' => 'Vietnamese'
+    ],
 ];
-
