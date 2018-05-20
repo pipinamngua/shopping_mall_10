@@ -26,8 +26,8 @@
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade active in">
                             <div class="agile_ecommerce_tabs" id="products_content">
-                                @if (isset($firstProduct) && !empty($firstProduct))
-                                    @foreach ($firstProduct as $product)
+                                @if (isset($firstProducts) && !empty($firstProducts))
+                                    @foreach ($firstProducts as $product)
                                         <div class="col-md-4 agile_ecommerce_tab_left">
                                             <div class="hs-wrapper">
                                                 <img src="{{ asset('images/home/5.jpg') }}" alt="" class="img-responsive" />
