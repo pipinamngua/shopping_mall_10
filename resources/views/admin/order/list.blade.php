@@ -47,6 +47,8 @@
                         {{ trans('custom.order.delevering') }}
                         @elseif ($item->status == config('custom.order.statusDeliveried'))
                         {{ trans('custom.order.deleveried') }}
+                        @elseif ($item->status == config('custom.order.pending'))
+                        {{ trans('custom.order.pending') }}
                         @endif
                     </td>
                     <td>
@@ -75,6 +77,15 @@
                                 ]) !!}
 
                                     <button class="btn btn-warning btn-xs" onclick="return confirm('Are you sure?')">{{ trans('custom.order_admin.delivering') }}</button>
+
+                                {!! Form::close() !!}
+
+                                {!! Form::open([
+                                    'method' => 'POST',
+                                    'route' => ['changeStatus', config('custom.order.pending'), $item->id],
+                                ]) !!}
+
+                                    <button class="btn btn-warning btn-xs" onclick="return confirm('Are you sure?')">{{ trans('custom.order_admin.pending') }}</button>
 
                                 {!! Form::close() !!}
 

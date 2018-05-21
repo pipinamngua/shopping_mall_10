@@ -27,6 +27,8 @@ Route::group(['middleware' => 'locale'], function () {
             Route::get('/', 'AdminController@index');
         //Admin user
             Route::resource('user', 'UserController');
+            Route::post('raise-admin/{id}', 'UserController@raiseAdmin')->name('raiseAdmin');
+            Route::post('reduce-user/{id}', 'UserController@reduceUser')->name('reduceUser');
         //Order admin
             Route::get('order', 'OrderController@index')->name('order');
             Route::get('orderdetail/{id}', 'OrderController@show')->name('orderDetail');

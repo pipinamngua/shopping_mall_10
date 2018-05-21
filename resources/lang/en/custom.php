@@ -31,6 +31,12 @@ return [
         'btn_add' => 'Add',
         'btn_edit' => 'Edit',
         'btn_delete' => 'Delete',
+        'failAdmin' => 'You are Admin , not raise to Admin',
+        'failUser' => 'Tou are User, not reduce to User',
+        'successAdmin' => 'You raise to Admin Successfully',
+        'successUser' => 'You reduce to User Successfully',
+        'raiseAdmin' => 'Raise Admin',
+        'reduceUser' => 'Reduce User',
     ],
     'form' => [
         'submit' => 'Submit',
@@ -113,6 +119,7 @@ return [
         'delevering' => 'Delevering',
         'deleveried' => 'Deleveried',
         'changeStatus' => 'Change status Fail',
+        'pending' => 'Pending',
     ],
     'order_admin' => [
         'order_table' => 'Order Table',
@@ -130,7 +137,8 @@ return [
         'note' => 'Note',
         'detail' => 'DetailOrder',
         'deliveried' => 'Deliveried',
-        'delivering' => 'Delivering'
+        'delivering' => 'Delivering',
+        'pending' => 'Pending',
     ],
     'order_detail' => [
         'title' => 'Order Detail Table',
