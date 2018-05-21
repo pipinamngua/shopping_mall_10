@@ -51,4 +51,15 @@ class Product extends Model
     {
         return static::all();
     }
+
+    public function scopeProductListSort($query, $sort, $cate)
+    {
+        if ($sort == 1) {
+            return $query->where('category_id', $cate)->orderByRaw('price_out ASC')->get();
+        } elseif ($sort == 2) {
+            return $query->where('category_id', $cate)->orderByRaw('price_out DESC')->get();
+        } else {
+            return $query->where('category_id', $cate)->get();
+        }
+    }
 }

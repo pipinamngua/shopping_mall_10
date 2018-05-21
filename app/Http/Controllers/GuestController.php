@@ -10,7 +10,7 @@ use App\Models\Product;
 class GuestController extends Controller
 {
     public function index()
-    {   
+    {
         return view('home');
     }
 
@@ -33,11 +33,21 @@ class GuestController extends Controller
         $category = Category::find($id);
         $products = $category->products;
 
-        return view('user.products.productlist', compact('category', 'products')); 
+        return view('user.products.product-list', compact('category', 'products'));
     }
 
-    public function checkout() 
+    public function checkout()
     {
         return view('user.checkout');
+    }
+
+    public function getProductListSort($string)
+    {
+        $array = explode('-', $string);
+        $category = $array[0];
+        $sort = $array[1];
+        $products = Product::productListSort($sort, $category);
+
+        return view('user.cate.product-cate-sort', compact('products'));
     }
 }

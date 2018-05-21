@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Comment;
+use App\Models\Comment;
 use Session;
 
 class UserController extends Controller

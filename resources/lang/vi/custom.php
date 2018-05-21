@@ -242,4 +242,9 @@ return [
         'english' => 'Tiếng anh',
         'vietnam' => 'Tiếng việt',
     ],
+    'sort' => [
+        'default' => 'Sắp xếp mặc định ',
+        'lowToHigh' => 'Sắp xếp theo giá: thấp đên cao',
+        'hightToLow' => 'Sắp xếp theo giá: cao đến thấp',
+    ],
 ];
