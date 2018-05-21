@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row mt">
-    <div class="col-lg-12">
+    <div class="col-7 col-lg-8">
         <div class="form-panel">
             <h4 class="mb"><i class="fa fa-angle-right"></i>{{ trans('custom.product.title', ['action' => 'Show']) }}</h4>
             
@@ -31,7 +31,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::text(
                     'name',
                     null,
@@ -53,7 +53,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                     {!! Form::select(
                         'category_id',
                         $categories,
@@ -75,7 +75,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::select(
                     'supplier_id',
                     $suppliers,
@@ -97,7 +97,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::text(
                     'price_in',
                     null,
@@ -119,7 +119,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::text(
                     'price_out',
                     null,
@@ -139,7 +139,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::text(
                     'description',
                     null,
@@ -161,7 +161,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::select(
                     'status',
                     [
@@ -187,7 +187,7 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
+                <div class="col-sm-8">
                 {!! Form::text(
                     'quantity',
                     null,
@@ -209,9 +209,11 @@
                         'class' => 'col-sm-2 col-sm-2 control-label',
                     ]
                  ) !!}
-                <div class="col-sm-5">
-                {!! Form::file('images') !!}
+                <div class="col-sm-8" id="input_img">
+                {{ Form::file('images[]', ['multiple' => true, 'id' => 'images']) }}
                 </div>
+                <br>
+                {!! $errors->first('url','<p style="color:red">:message</p>') !!}
             </div>
 
             <div class="form-group" align="center">
@@ -231,5 +233,14 @@
             {!! Form::close() !!}
         </div>
     </div>    
+    <div class="col-5 col-lg-4" id="div_img">
+        <div class="form-panel">
+            @if (isset($images) && !empty($images))
+                @foreach($images as $image)
+                    <img class="group list-group-image" src="{{ asset('storage/images/product/' . $image->url) }}" alt="">
+                @endforeach
+            @endif
+        </div>
+    </div>
 </div>
 @endsection

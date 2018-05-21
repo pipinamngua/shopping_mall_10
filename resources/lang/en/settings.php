@@ -30,6 +30,7 @@ return [
             'categories' => 'Categories',
             'suppliers' => 'Supliers',
             'products' => 'Products',
+            'users' => 'Users',
             'revenue' => 'Revenue',
             'discount' => 'Discount',
             'notification_task' => 'You have x pending tasks',

@@ -103,8 +103,18 @@
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="#;" >
+                    <a href="#" >
                         <i class="fa fa-tasks"></i>
+                        <span>{{ trans('settings.layout.admin.users') }}</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{ route('user.index') }}">{{ trans('settings.layout.admin.btn_view') }}</a></li>
+                        <li><a href="{{ route('user.create') }}">{{ trans('settings.layout.admin.btn_add') }}</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="#;" >
+                        <i class="fa fa-bar-chart-o"></i>
                         <span>{{ trans('settings.layout.admin.revenue') }}</span>
                     </a>
                 </li>
