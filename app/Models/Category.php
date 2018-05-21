@@ -38,14 +38,6 @@ class Category extends Model
         return $categories;
     }
 
-    public static function getfirstProducts()
-    {
-        $category = static::where('parent_id', '!=', 0)->first();
-        $firstProducts = $category->products;
-        
-        return $firstProducts; 
-    }
-
     public static function getName()
     {
         return static::pluck('name', 'id');

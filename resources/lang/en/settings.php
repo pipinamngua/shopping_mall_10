@@ -31,7 +31,7 @@ return [
             'suppliers' => 'Supliers',
             'products' => 'Products',
             'users' => 'Users',
-            'revenue' => 'Revenue',
+            'orders' => 'Orders',
             'discount' => 'Discount',
             'notification_task' => 'You have x pending tasks',
             'messages' => 'You have x new messages',

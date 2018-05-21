@@ -10,8 +10,20 @@ use App\Models\Product;
 class GuestController extends Controller
 {
     public function index()
-    {
-        return view('home');
+    {   
+        $newCategories = Category::orderBy('created_at')->where('parent_id', '!=', 0);
+        if(!empty($newCategories) && isset($newCategories)){
+            $firstProducts = $newCategories->first()->products;
+            if ($newCategories->count() >= 4) {
+                $newCategories = $newCategories->take(4)->get();
+            } else {
+                $newCategories = $newCategories->take($newCategories->count())->get();
+            }
+        }
+
+        $newProducts = Product::where('status', 1)->paginate(config('custom.pagination.product_table'));
+
+        return view('home', compact('newCategories', 'firstProducts', 'newProducts'));
     }
 
     public function show(Product $product)

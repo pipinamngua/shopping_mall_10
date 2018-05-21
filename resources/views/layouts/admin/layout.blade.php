@@ -61,7 +61,21 @@
         </div>
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="#">{{ trans('settings.title.logout') }}</a></li>
+                <li>
+                    {!! Form::open(
+                    [
+                        'route' => 'logout',
+                        'method' => 'POST',
+                    ]
+                    ) !!}
+                    {!! Form::submit(
+                    trans('settings.title.logout'),
+                    [
+                        'class' => 'btn btn-round btn-success',
+                    ]
+                    ) !!}
+                    {!! Form::close() !!}
+                </li>
             </ul>
         </div>
     </header>
@@ -113,9 +127,9 @@
                     </ul>
                 </li>
                 <li class="sub-menu">
-                    <a href="#;" >
-                        <i class="fa fa-bar-chart-o"></i>
-                        <span>{{ trans('settings.layout.admin.revenue') }}</span>
+                    <a href="{{ route('order') }}" >
+                        <i class="fa fa-tasks"></i>
+                        <span>{{ trans('settings.layout.admin.orders') }}</span>
                     </a>
                 </li>
                 <li class="sub-menu">

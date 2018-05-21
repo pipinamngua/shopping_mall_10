@@ -35,13 +35,17 @@ class CartController extends Controller
         $product = Product::findOrFail($product_id);
         $image_main = $product->images->where('main_image', 1);
 
+        if(!empty($image_main) && isset($main_image)) {
+            $url =  $image_main[0]->url;
+        } else {
+            $url = config('custom.product.image');
+        }
         $cartInfo = [
             'id' => $product_id,
             'name' => $product->name,
             'price' => $product->price_out,
             'qty' => '1',
-            'options' => ['image' => $image_main[0]->url]
-
+            'options' => ['image' => $url]
         ];
         Cart::add($cartInfo);
 
