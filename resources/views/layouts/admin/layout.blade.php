@@ -78,9 +78,8 @@
                         <span>{{ trans('settings.layout.admin.categories') }}</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_view') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_add') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_edit') }}</a></li>
+                        <li><a href="{{ route('category.index') }}">{{ trans('settings.layout.admin.btn_view') }}</a></li>
+                        <li><a href="{{ route('category.create') }}">{{ trans('settings.layout.admin.btn_add') }}</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -89,9 +88,8 @@
                         <span>{{ trans('settings.layout.admin.suppliers') }}</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_view') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_add') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_edit') }}</a></li>
+                        <li><a href="{{ route('supplier.index') }}">{{ trans('settings.layout.admin.btn_view') }}</a></li>
+                        <li><a href="{{ route('supplier.create') }}">{{ trans('settings.layout.admin.btn_add') }}</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -100,9 +98,8 @@
                         <span>{{ trans('settings.layout.admin.products') }}</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_view') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_add') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_edit') }}</a></li>
+                        <li><a href="{{ route('product.index') }}">{{ trans('settings.layout.admin.btn_view') }}</a></li>
+                        <li><a href="{{ route('product.create') }}">{{ trans('settings.layout.admin.btn_add') }}</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -117,9 +114,8 @@
                         <span>{{ trans('settings.layout.admin.discount') }}</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_view') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_add') }}</a></li>
-                        <li><a href="#">{{ trans('settings.layout.admin.btn_edit') }}</a></li>
+                        <li><a href="{{ route('discount.index') }}">{{ trans('settings.layout.admin.btn_view') }}</a></li>
+                        <li><a href="{{ route('discount.create') }}">{{ trans('settings.layout.admin.btn_add') }}</a></li>
                     </ul>
                 </li>
             </ul>
