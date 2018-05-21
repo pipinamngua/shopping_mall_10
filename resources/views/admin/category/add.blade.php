@@ -49,7 +49,7 @@
                     <div class="col-sm-10">
                         {!! Form::select(
                             'parent_id',
-                            $parent,
+                            $parents,
                             null
                             ,
                             [
