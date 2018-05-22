@@ -1,8 +1,8 @@
 <ul class="dropdown-menu multi-column columns-3">
     <div class="row">
         @if (isset($parents) && !empty($parents))
-        @foreach($parents as $value)
         {{ $i=0 }}
+        @foreach($parents as $value)
         <div class="col-sm-3">
             <ul class="multi-column-dropdown">
                 <h6>{{ $value }}</h6>

@@ -20,15 +20,15 @@ return [
     'image' => [
         'avatar_default' => 'storage/images/avatar/unknown.png',
         'path_avatar' => 'storage/images/avatar',
-        'path_default' => 'storage/images/product/unknown.png',
-        'path_product_img' => 'storage/images/product',
+        'path_default' => 'storage/images/product/product.png',
+        'path_product' => 'storage/images/product',
     ],
     'pagination' => [
         'user_table' => 10,
         'order_table' => 10,
         'category_table' => 10,
         'supplier_table' => 10,
-        'product_table' => 7,
+        'product_table' => 8,
     ],
     'order' => [
         'payment' => 'payment',
@@ -43,5 +43,6 @@ return [
         'statusOld' => 2,
         'statusTrend' => 3,
         'slug' => "product",
+        'image' => 'product.png',
     ],
 ];

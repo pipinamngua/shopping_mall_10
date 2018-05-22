@@ -25,9 +25,9 @@
         </div>
         <div class="col-md-7 wthree_banner_bottom_right">
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                @if (isset($categories) && !empty($categories))
+                @if (isset($newCategories) && !empty($newCategories))
                     <ul id="myTab" class="nav nav-tabs" role="tablist">
-                        @foreach($categories[0]->take(4) as $category)
+                        @foreach($newCategories as $category)
                         <li role="presentation" class="active">
                             <a href="#category-{{ $category->id }}" class="select-category" data-id="{{ $category->id }}">{{ $category->name }}</a>
                         </li>
@@ -86,8 +86,8 @@
         <div class="container">
         <h3>{{ trans('settings.layout.homePage.new_products') }}</h3>
             <div class="agileinfo_new_products_grids">
-                @if (isset($products) && !empty($products))
-                    @foreach($products as $product)
+                @if (isset($newProducts) && !empty($newProducts))
+                    @foreach($newProducts as $product)
                     <div class="col-md-3 agileinfo_new_products_grid">
                         <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
                             <div class="hs-wrapper hs-wrapper1">

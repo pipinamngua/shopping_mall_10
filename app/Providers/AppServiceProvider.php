@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', Category::categories());
         });
         view()->composer('home', function($view) {
-            $view->with('firstProducts', Category::getfirstProducts());
             $view->with('products', Product::getProducts());
         });
         view()->composer('admin.product.*', function($view) {
