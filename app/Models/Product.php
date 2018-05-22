@@ -62,4 +62,9 @@ class Product extends Model
             return $query->where('category_id', $cate)->get();
         }
     }
+
+    public function scopeSearchProduct($query, $keyword)
+    {
+        return $query->where('name', 'like', '%' . $keyword . '%')->get();
+    }
 }

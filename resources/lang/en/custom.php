@@ -261,4 +261,9 @@ return [
         'noti' => 'Notification',
         'content' => 'You can\'t delete :field!',
     ],
+    'search' => [
+        'fail' => 'Keyword not blank',
+        'success' => 'Find :quanlity products',
+        'keyword_text' => 'Search name product',
+    ],
 ];

@@ -255,4 +255,9 @@ return [
         'lowToHigh' => 'Sắp xếp theo giá: thấp đên cao',
         'hightToLow' => 'Sắp xếp theo giá: cao đến thấp',
     ],
+    'search' => [
+        'fail' => 'Từ khóa không được để trống',
+        'success' => 'Tìm thấy  :quanlity sản phẩm',
+        'keyword_text' => 'Tìm kiếm theo tên sản phẩm',
+    ],
 ];

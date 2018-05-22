@@ -84,6 +84,9 @@
     </br></br>
     <div class="new-products">
         <div class="container">
+        @if (Session::has('success'))
+            <strong>{{ Session::get('success') }}</strong>
+        @endif
         <h3>{{ trans('settings.layout.homePage.new_products') }}</h3>
             <div class="agileinfo_new_products_grids">
                 @if (isset($newProducts) && !empty($newProducts))

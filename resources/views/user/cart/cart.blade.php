@@ -114,10 +114,10 @@
                 <ul>
                     @if(count($cart))
                         @foreach($cart as $item)
-                            <li>{{ $item->name }}<i>-</i> <span>{{ number_format($item->price*$item->qty,2,",",".") }}</span></li>
+                            <li>{{ $item->name }}<i>-</i> <span>{{ number_format($item->price*$item->qty, 2, ".", ",") }}</span></li>
                         @endforeach
                     @endif
-                    <li>{{ trans('custom.cart.total')}} <i>-</i> <span>{{ Cart::total() }}</span></li>
+                    <li>{{ trans('custom.cart.total')}} <i>-</i> <span>{{ number_format(Cart::total(), 2, '.', ',') }}</span></li>
                 </ul>
             </div>
             <div class="checkout-right-basket">

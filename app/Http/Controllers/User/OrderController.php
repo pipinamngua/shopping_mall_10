@@ -61,7 +61,7 @@ class OrderController extends Controller
         $order->address = $data['address'];
         $order->subtotal = $data['subtotal'];
         $order->endtotal = $data['endtotal'];
-        $order->status = config('custom.user.status');
+        $order->status = config('custom.order.pending');
         $order->message = $data['message'];
 
         if (Auth::check()) {
