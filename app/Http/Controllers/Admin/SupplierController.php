@@ -15,9 +15,13 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $suppliers = Supplier::paginate(config('custom.pagination.supplier_table'));
+        if(empty($request->del_error)){
+            return view('admin.supplier.list', compact('suppliers'));
+        }
+        Session::flash('unsuccess', trans('custom.delete.content', ['field' => $request->del_error]));
 
         return view('admin.supplier.list', compact('suppliers'));
     }
@@ -104,9 +108,24 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        Supplier::findOrFail($id)->delete();
-        Session::flash('success', trans('custom.supplier.delete_success') . ' ' . $id);
+        try {
+            $supplier = Supplier::findOrFail($id);
+            $products = $supplier->products;
+            if(!empty($products) && isset($products)){
+                foreach ($products as $item) {
+                    if ($item->quantity != 0) {
+                        $del_error = $category->name;
 
-        return redirect()->route('supplier.index');
+                        return redirect()->route('supplier.index', ['del_error' => $del_error]);
+                    }
+                }
+            }
+            $supplier->delete();
+            Session::flash('success', trans('custom.supplier.delete_success') . ' ' . $id);
+
+            return redirect()->route('supplier.index');
+        } catch (Exception $e) {
+            return redirect()->route('supplier.index', ['del_error' => $e->getMessage()]);
+        }
     }
 }

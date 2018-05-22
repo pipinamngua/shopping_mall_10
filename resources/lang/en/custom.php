@@ -249,4 +249,8 @@ return [
         'lowToHigh' => 'Sort by price: low to high',
         'hightToLow' => 'Sort by price: high to low',
     ],
+    'delete' => [
+        'noti' => 'Notification',
+        'content' => 'You can\'t delete :field!',
+    ],
 ];
