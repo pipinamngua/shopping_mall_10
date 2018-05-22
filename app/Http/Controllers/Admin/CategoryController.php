@@ -15,10 +15,14 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
         $categories = Category::paginate(config('custom.pagination.category_table'));
         $parents = Category::where('parent_id', 0)->pluck('name', 'id');
+        if(empty($request->del_error)){
+            return view('admin.category.list', compact('categories', 'parents'));
+        }
+        Session::flash('unsuccess', trans('custom.delete.content', ['field' => $request->del_error));
 
         return view('admin.category.list', compact('categories', 'parents'));
     }
@@ -105,9 +109,35 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
-        Session::flash('success', trans('custom.category.delete_success') . ' ' . $id);
+        try {
+            $category = Category::findOrFail($id);
+            if($category->parent_id == 0){
+                $categories = Category::where('parent_id', $id);
+                if($categories->count() != 0) {
+                    $del_error = $category->name;
 
-        return redirect()->route('category.index');
+                    return redirect()->route('category.index', ['del_error' => $del_error]);
+                }
+            }
+
+            $products = $category->products;
+            if(!empty($products) && isset($products)){
+                foreach ($products as $item) {
+                    if ($item->quantity != 0) {
+                        $del_error = $category->name;
+
+                        return redirect()->route('category.index', ['del_error' => $del_error]);
+                    }
+                }
+            }
+
+            $category->delete();
+            Session::flash('success', trans('custom.category.delete_success') . ' ' . $id);
+
+            return redirect()->route('category.index');
+            
+        } catch (Exception $e) {
+            return redirect()->route('category.index', ['del_error' => $e->getMessage()]);
+        }
     }
 }

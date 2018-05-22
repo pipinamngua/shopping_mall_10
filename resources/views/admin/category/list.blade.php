@@ -17,6 +17,13 @@
                     </i>
                 </div>
             @endif
+            @if (Session::has('unsuccess'))
+                <div class="alert alert-success">
+                    <i>
+                        <p>{{ Session::get('unsuccess')}}</p>
+                    </i>
+                </div>
+            @endif
             <hr>
             <thead>
                 <tr>
@@ -45,12 +52,14 @@
                         ]
                     ) }}
                     </button>
+                    @if(count($item->products) == 0)
                     {!! Form::open([
                         'method' => 'delete',
                         'route' => ['category.destroy',$item->id],
                     ]) !!}
                     <button class="btn btn-danger btn-xs" onclick="return confirm('{{ trans('custom.form.sure') }}')"><i class="fa fa-trash-o "></i></button>
                     {!! Form::close() !!}
+                    @endif
                 </td>
                 </tr>
                 @endforeach

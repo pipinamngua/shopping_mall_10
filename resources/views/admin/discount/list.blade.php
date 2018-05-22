@@ -55,9 +55,6 @@
                 {{ $discounts->links() }}
             </div>
         </div>
-        <!-- /content-panel -->
     </div>
-    <!-- /col-md-12 -->
 </div>
-<!-- /row -->
 @endsection
