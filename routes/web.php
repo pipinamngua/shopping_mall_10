@@ -15,7 +15,7 @@ Route::group(['middleware' => 'locale'], function () {
     
     Route::get('change-language/{language}', 'HomeController@changeLanguage')->name('user.change-language');
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/', 'GuestController@index');
+    Route::get('/', 'GuestController@index')->name('indexHome');
     Route::get('/product/{product}', 'GuestController@show')->name('productdetail');
     Route::get('checkout', 'GuestController@checkout');
     Route::get('category/{id}', 'GuestController@getProductList')->name('category');

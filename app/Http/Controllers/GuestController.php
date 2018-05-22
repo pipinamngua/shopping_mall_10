@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Supplier;
 use App\Models\Product;
+use Session;
 
 class GuestController extends Controller
 {
-    public function index()
-    {   
+    public function index(Request $request)
+    {
         $newCategories = Category::orderBy('created_at')->where('parent_id', '!=', 0);
-        if(!empty($newCategories) && isset($newCategories)){
+        if (!empty($newCategories) && isset($newCategories)) {
             $firstProducts = $newCategories->first()->products;
             if ($newCategories->count() >= 4) {
                 $newCategories = $newCategories->take(4)->get();
@@ -20,8 +21,20 @@ class GuestController extends Controller
                 $newCategories = $newCategories->take($newCategories->count())->get();
             }
         }
-
-        $newProducts = Product::where('status', 1)->paginate(config('custom.pagination.product_table'));
+  
+        if ($request->has('keyword')) {
+            if ($request->get('keyword') != '') {
+                $keyWord = $request->keyword;
+                $products = Product::searchProduct($keyWord);
+                Session::flash('success', trans('custom.search.success', ['quanlity' => count($products)]));
+                $newProducts = $products;
+            } else {
+                Session::flash('fail', trans('custom.search.fail'));
+                $newProducts = Product::where('status', 1)->paginate(config('custom.pagination.product_table'));
+            }
+        } else {
+            $newProducts = Product::where('status', 1)->paginate(config('custom.pagination.product_table'));
+        }
 
         return view('home', compact('newCategories', 'firstProducts', 'newProducts'));
     }

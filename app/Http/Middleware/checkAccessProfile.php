@@ -19,7 +19,7 @@ class checkAccessProfile
     {
         if (!Auth::check()) {
             Session::flash('fail', trans('custom.middleware.profile'));
-            return redirect()->route('home');
+            return redirect()->route('indexHome');
         }
         
         return $next($request);
