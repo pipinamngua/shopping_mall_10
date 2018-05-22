@@ -22,7 +22,7 @@ return [
         'avatar_default' => 'storage/images/avatar/unknown.png',
         'path_avatar' => 'storage/images/avatar',
         'path_default' => 'storage/images/product/product.png',
-        'path_product' => 'storage/images/product',
+        'path_product_img' => 'storage/images/product',
     ],
     'pagination' => [
         'user_table' => 10,
