@@ -11,7 +11,8 @@ return [
         'points' => 0,
         'role_id' => 2,
         'status' => 1,
-        'user_id' => 0
+        'user_id' => 0,
+        'admin' => 1,
     ],
     'form' => [
          'create' => 'create',
@@ -34,8 +35,10 @@ return [
         'payment' => 'payment',
         'homepayment' => 'homepayment',
         'creditcard' => 'creditcard',
-        'statusDeliveried' => 0,
-        'statusDelivering' => 1,
+        'statusDeliveried' => 1,
+        'statusDelivering' => 2,
+        'points' => 100000,
+        'pending' => 0,
     ],
     'product' => [
         'img' => 'unknown.png',

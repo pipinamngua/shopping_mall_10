@@ -31,6 +31,12 @@ return [
         'btn_add' => 'Thêm mới',
         'btn_edit' => 'Chỉnh sửa',
         'btn_delete' => 'Xóa',
+        'failAdmin' => 'Bạn là Admin, bạn không thể lên quyền',
+        'failUser' => 'Tài khoản đã là user , không thể hạ quyền',
+        'successAdmin' => 'Bạn tăng quyền thành công',
+        'successUser' => 'Bạn giảm quyền thành công',
+        'raiseAdmin' => 'Tăng quyền Admin',
+        'reduceUser' => 'Giảm quyền User',
     ],
     'form' => [
         'submit' => 'Đăng ký',
@@ -113,6 +119,7 @@ return [
         'delevering' => 'Đang vận chuyển',
         'deleveried' => 'Đã vân chuyển',
         'changeStatus' => 'Thay đổi trạng thái thất bại',
+        'pending' => 'Chưa sẵn sàng',
     ],
     'order_admin' => [
         'order_table' => 'Bảng Order',
@@ -130,7 +137,8 @@ return [
         'note' => 'Chú ý',
         'detail' => 'Chi tiết đơn hàng',
         'deliveried' => 'Đã giao hàng',
-        'delivering' => 'Đang giao hàng'
+        'delivering' => 'Đang giao hàng',
+        'pending' => 'Chưa sẵn sàng',
     ],
     'order_detail' => [
         'title' => 'Bảng chi tiết đơn hàng',

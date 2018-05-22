@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\User;
 use Session;
 use DateTime;
 use Cart;
@@ -65,6 +66,8 @@ class OrderController extends Controller
 
         if (Auth::check()) {
             $order->user_id = Auth::user()->id;
+            $points = Auth::user()->points + ($data['endtotal']/config('custom.order.points'));
+            User::find(Auth::user()->id)->update(['points' => $points]);
         } else {
             $order->user_id = config('custom.user.user_id');
         }

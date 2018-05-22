@@ -12,6 +12,14 @@
                     </i>
                 </div>
                 @endif
+
+                @if (Session::has('fail'))
+                <div class="alert alert-danger">
+                    <i>
+                        <p>{{ Session::get('fail')}}</p>
+                    </i>
+                </div>
+                @endif
                 <hr>
                 <thead>
                     <tr>
@@ -59,6 +67,20 @@
                                 'route' => ['user.destroy',$item->id],
                             ]) !!}
                             <button class="btn btn-danger btn-xs" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o "></i></button>
+                            {!! Form::close() !!}
+
+                            {!! Form::open([
+                                'method' => 'POST',
+                                'route' => ['raiseAdmin',$item->id],
+                            ]) !!}
+                            <button class="btn btn-warning btn-xs" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o ">{{ trans('custom.user_admin.raiseAdmin') }}</i></button>
+                            {!! Form::close() !!}
+
+                            {!! Form::open([
+                                'method' => 'POST',
+                                'route' => ['reduceUser',$item->id],
+                            ]) !!}
+                            <button class="btn btn-warning btn-xs" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o ">{{ trans('custom.user_admin.reduceUser') }}</i></button>
                             {!! Form::close() !!}
                         </td>
                     </tr>

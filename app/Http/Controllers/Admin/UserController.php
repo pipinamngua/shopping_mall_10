@@ -81,16 +81,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -156,5 +146,41 @@ class UserController extends Controller
         Session::flash('success', trans('custom.user_admin.delete_success') . ' id = ' . $id);
 
         return redirect()->route('user.index');
+    }
+
+    public function raiseAdmin($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            if ($user->role_id == config('custom.user.admin')) {
+                Session::flash('fail', trans('custom.user_admin.failAdmin'));
+            } else {
+                Session::flash('success', trans('custom.user_admin.successAdmin'));
+                $user->role_id = config('custom.user.admin');
+                $user->save();
+            }
+
+            return back();
+        } catch (ModelNotFoundException $e) {
+            return view('admin.partials.404');
+        }
+    }
+
+    public function reduceUser($id)
+    {
+        try {
+            $user = User::findOrFail($id);
+            if ($user->role_id == config('custom.user.role_id')) {
+                Session::flash('fail', trans('custom.user_admin.failUser'));
+            } else {
+                Session::flash('success', trans('custom.user_admin.successUser'));
+                $user->role_id =  config('custom.user.role_id');
+                $user->save();
+            }
+            
+            return back();
+        } catch (ModelNotFoundException $e) {
+            return view('admin.partials.404');
+        }
     }
 }
