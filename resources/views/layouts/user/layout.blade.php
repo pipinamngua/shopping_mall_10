@@ -295,7 +295,7 @@
                     @endguest
                 </div>
                 <div class="w3l_logo">
-                    <h1><a href="{{ route('home') }}">Women's Fashion<span>For Fashion Lovers</span></a></h1>
+                    <h1><a href="{{ route('indexHome') }}">Women's Fashion<span>For Fashion Lovers</span></a></h1>
                 </div>
                 <div class="search">
                     <input class="search_box" type="checkbox" id="search_box">
@@ -335,7 +335,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="{{ route('home') }}" class="act">{{ trans('settings.layout.user.home') }}</a></li>
+                            <li class="active"><a href="{{ route('indexHome') }}" class="act">{{ trans('settings.layout.user.home') }}</a></li>
                             <!-- Mega Menu -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('settings.layout.user.products') }} <b class="caret"></b></a>
