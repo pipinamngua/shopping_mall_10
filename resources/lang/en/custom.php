@@ -244,7 +244,9 @@ return [
         'select_status' => 'Choose a status',
         'quantity_placeholder' => '0',
         'create_success' => 'Creat a new Product Successfully',
+        'create_unsuccess' => 'You can\'t add images',
         'edit_success' => 'Edit Product Successfully',
+        'edit_unsuccess' => 'You can\'t add images',
         'delete_success' => 'Delete Product Successfully',
     ],
     'language' => [

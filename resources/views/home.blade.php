@@ -36,15 +36,16 @@
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade active in">
                             <div class="agile_ecommerce_tabs" id="products_content">
+                                @if(isset($products) && !empty($products))
                                 @if (isset($firstProducts) && !empty($firstProducts))
                                     @foreach ($firstProducts as $product)
                                         <div class="col-md-4 agile_ecommerce_tab_left">
                                             <div class="hs-wrapper">
-                                                <img src="{{ asset('images/home/5.jpg') }}" alt="" class="img-responsive" />
-                                                <img src="{{ asset('images/home/5.jpg') }}" alt="" class="img-responsive" />
-                                                <img src="{{ asset('images/home/5.jpg') }}" alt="" class="img-responsive" />
-                                                <img src="{{ asset('images/home/5.jpg') }}" alt="" class="img-responsive" />
-                                                <img src="{{ asset('images/home/5.jpg') }}" alt="" class="img-responsive" />
+                                                @if(isset($product->images) && !empty($product->images))
+                                                    @foreach($product->images as $image)
+                                                        <img src="{{ asset('storage/images/product/' . $image->url) }}" alt="" class="img-responsive" />
+                                                    @endforeach
+                                                @endif            
                                                 <div class="w3_hs_bottom">
                                                     <ul>
                                                         <li>
@@ -74,6 +75,7 @@
                                     @endforeach
                                     <div class="clearfix"></div>
                                 @endif
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -94,11 +96,11 @@
                     <div class="col-md-3 agileinfo_new_products_grid">
                         <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
                             <div class="hs-wrapper hs-wrapper1">
-                                <img src="{{ asset('images/home/27.jpg') }}" alt=" " class="img-responsive" />
-                                <img src="{{ asset('images/home/28.jpg') }}" alt=" " class="img-responsive" />
-                                <img src="{{ asset('images/home/29.jpg') }}" alt=" " class="img-responsive" />
-                                <img src="{{ asset('images/home/30.jpg') }}" alt=" " class="img-responsive" />
-                                <img src="{{ asset('images/home/31.jpg') }}" alt=" " class="img-responsive" />
+                                @if(isset($product->images) && !empty($product->images))
+                                    @foreach($product->images as $image)
+                                        <img src="{{ asset('storage/images/product/' . $image->url) }}" alt="" class="img-responsive" />
+                                    @endforeach
+                                @endif                                                            
                                 <div class="w3_hs_bottom w3_hs_bottom_sub">
                                     <ul>
                                         <li>
@@ -123,6 +125,9 @@
                         </div>
                     </div>
                     @endforeach
+                    <div align="center">
+                        {{ $newProducts->links() }}
+                    </div>
                 @endif
                 <div class="clearfix"> </div>
             </div>

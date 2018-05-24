@@ -9,7 +9,20 @@
     <div class="col-7 col-lg-8">
         <div class="form-panel">
             <h4 class="mb"><i class="fa fa-angle-right"></i>{{ trans('custom.product.title', ['action' => 'Show']) }}</h4>
-            
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    <i>
+                        <p>{{ Session::get('success')}}</p>
+                    </i>
+                </div>
+            @endif
+            @if (Session::has('unsuccess'))
+                <div class="alert alert-success">
+                    <i>
+                        <p>{{ Session::get('unsuccess')}}</p>
+                    </i>
+                </div>
+            @endif
             {!! Form::model(
                 $product,
                 [
@@ -212,7 +225,7 @@
                 <div class="col-sm-8" id="input_img">
                 {{ Form::file('images[]', ['multiple' => true, 'id' => 'images']) }}
                 </div>
-                <br>
+                <br><br>
                 {!! $errors->first('url','<p style="color:red">:message</p>') !!}
             </div>
 
@@ -233,14 +246,14 @@
             {!! Form::close() !!}
         </div>
     </div>    
-    <div class="col-5 col-lg-4" id="div_img">
-        <div class="form-panel">
-            @if (isset($images) && !empty($images))
+    @if (isset($images) && $images->count() != 0)
+        <div class="col-5 col-lg-4" id="div_img">
+            <div class="form-panel">     
                 @foreach($images as $image)
-                    <img class="group list-group-image" src="{{ asset('storage/images/product/' . $image->url) }}" alt="">
+                    <img src="{{ asset('storage/images/product/' . $image->url) }}" alt="" class="img-responsive" />
                 @endforeach
-            @endif
+            </div>
         </div>
-    </div>
+    @endif
 </div>
 @endsection

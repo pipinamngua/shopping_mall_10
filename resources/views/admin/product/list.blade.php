@@ -10,13 +10,6 @@
     <div class="content-panel">
         <table class="table table-striped table-advance table-hover">
             <h4><i class="fa fa-angle-right"></i>{{ trans('custom.product.table') }}</h4>
-            @if (Session::has('success'))
-                <div class="alert alert-success">
-                    <i>
-                        <p>{{ Session::get('success')}}</p>
-                    </i>
-                </div>
-            @endif
             <hr>
             <thead>
                 <tr>

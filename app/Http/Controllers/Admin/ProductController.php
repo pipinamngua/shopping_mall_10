@@ -55,39 +55,32 @@ class ProductController extends Controller
             'quantity' => $request->quantity,
         ])->id;
 
-        if ($request->hasFile('images')) {
-            $files = $request->file('images');
-            $img_request = new ImageRequest(); 
-            $img_request['product_id'] = $id;
-            $img_request['main_image'] = 0; 
-            for ($i = 0; $i < count($files); $i++) {
-                $fileName = $files[$i]->getClientOriginalName().date('Y-m-d H:i:s');
-                $fileName = md5($fileName) . '.' . $files[$i]->getClientOriginalExtension();
-                $img_request['url'] = $fileName;
-                if(Image::create([
-                    'product_id' => $img_request->product_id,
-                    'url' => $img_request->url,
-                    'main_image' => $img_request->main_image,
-                ])) {
-                    $files[$i]->move(config('custom.image.path_product_img'), $fileName);
+        try {
+           if ($request->hasFile('images')) {
+                $files = $request->file('images');
+                if($this->addImages($files, $id)){
+                    $main = Image::where('product_id', $id)->first();
+                    if(!empty($main) && isset($main) && $main->url != config('custom.product.img')) {
+                        $main->update([
+                            'main_image' => 1,
+                        ]);
+                    }
+                    Session::flash('success', trans('custom.product.create_success'));
+                } else {
+                    Session::flash('unsuccess', trans('custom.product.create_unsuccess'));
                 }
-            }
-
-            $main = Image::where('product_id', $id)->first();
-            if(!empty($main) && isset($main)) {
-                $main->update([
-                    'main_image' => 1,
+            } else {
+                Image::create([
+                        'product_id' => $id,
+                        'url' => config('custom.product.img'),
+                        'main_image' => 1,
                 ]);
+                Session::flash('success', trans('custom.product.create_success'));
             }
-        } else {
-            Image::create([
-                    'product_id' => $id,
-                    'url' => config('custom.product.img'),
-                    'main_image' => 1,
-            ]);
+            
+        } catch (Exception $e) {
+            Session::flash('unsuccess', $e->getMessage());   
         }
-
-        Session::flash('success', trans('custom.product.create_success'));
 
         return redirect()->route('product.show', ['id' => $id]); 
     }
@@ -100,7 +93,13 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $images = $product->images;
+        $images = $product->images->sortByDesc('id');
+
+        if($images->count() >= 3) {
+            $images = $images->take(3);
+        } else {
+            $images = $images->take($images->count());
+        }
 
         return view('admin.product.show', compact('product', 'images'));
     }
@@ -135,35 +134,28 @@ class ProductController extends Controller
             'status' => $request->status,
             'quantity' => $request->quantity,
         ]);
-
-        if ($request->hasFile('images')) {
-            $files = $request->file('images');
-            $img_request = new ImageRequest(); 
-            $img_request['product_id'] = $id;
-            $img_request['main_image'] = 0; 
-            for ($i = 0; $i < count($files); $i++) {
-                $fileName = $files[$i]->getClientOriginalName().date('Y-m-d H:i:s');
-                $fileName = md5($fileName) . '.' . $files[$i]->getClientOriginalExtension();
-                $img_request['url'] =$fileName;
-                if(Image::create([
-                    'product_id' => $img_request->product_id,
-                    'url' => $img_request->url,
-                    'main_image' => $img_request->main_image,
-                ])) {
-                    $files[$i]->move(config('custom.image.path_product_img'), $fileName);
+        try {
+            if ($request->hasFile('images')) {
+                $files = $request->file('images');
+                if($this->addImages($files, $id)){
+                    $main = Image::where('product_id', $id)->first();
+                    if(!empty($main) && isset($main) && $main->url != config('custom.product.img')) {
+                        $main->update([
+                            'main_image' => 1,
+                        ]);
+                    }
+                    Session::flash('success', trans('custom.product.edit_success'));
+                } else {
+                    Session::flash('unsuccess', trans('custom.product.edit_unsuccess'));
                 }
+            } else {
+                Session::flash('success', trans('custom.product.edit_success'));
             }
-            $main = Image::where('product_id', $id)->first();
-            if(!empty($main) && isset($main) && $main->url != config('custom.product.img')) {
-                $main->update([
-                    'main_image' => 1,
-                ]);
-            }
-        } 
-
-        Session::flash('success', trans('custom.product.create_success'));
-
-        return redirect()->route('product.show', ['id' => $id]);      
+        } catch (Exception $e) {
+            Session::flash('unsuccess', $e->getMessage());
+        }
+        
+        return redirect()->route('product.show', ['id' => $id]); 
     }
 
     /**
@@ -179,5 +171,26 @@ class ProductController extends Controller
         Session::flash('success', trans('custom.product.delete_success') . ' ' . $id);
 
         return redirect()->route('product.index');
+    }
+
+    public function addImages($files, $id)
+    {
+        $result = false;
+        for ($i = 0; $i < count($files); $i++) {
+            $fileName = $files[$i]->getClientOriginalName().date('Y-m-d H:i:s');
+            $fileName = md5($fileName) . '.' . $files[$i]->getClientOriginalExtension();
+            if (str_contains($fileName, ['.jpg', '.png', '.bmp', '.jpeg'])) {
+                if(Image::create([
+                    'product_id' => $id,
+                    'url' => $fileName,
+                    'main_image' => 0,
+                ])) {
+                    $files[$i]->move(config('custom.image.path_product_img'), $fileName);
+                    $result = true;
+                } 
+            }
+        }
+        
+        return $result;
     }
 }
