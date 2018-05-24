@@ -268,4 +268,11 @@ return [
         'success' => 'Find :quanlity products',
         'keyword_text' => 'Search name product',
     ],
+    'mail' => [
+        'title' => 'Authentication Buy Product',
+        'custom' => 'Customer',
+        'total' => 'Total',
+        'date' => 'Date order',
+        'detailOrder' => 'Detail Order'
+    ],
 ];
