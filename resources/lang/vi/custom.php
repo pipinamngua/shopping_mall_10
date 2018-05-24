@@ -253,7 +253,7 @@ return [
     'sort' => [
         'default' => 'Sắp xếp mặc định ',
         'lowToHigh' => 'Sắp xếp theo giá: thấp đên cao',
-        'hightToLow' => 'Sắp xếp theo giá: cao đến thấp',
+        'highToLow' => 'Sắp xếp theo giá: cao đến thấp',
     ],
     'search' => [
         'fail' => 'Từ khóa không được để trống',
