@@ -58,6 +58,7 @@ class OrderController extends Controller
 
         // Mail to user
         Mail::to($order->email)->send(new OrderShipped($order));*/
+
         return redirect()->route('cart');
     }
 
