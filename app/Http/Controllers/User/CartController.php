@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderShipped;
 use App\Models\Product;
 use Cart;
 use Session;
@@ -35,7 +37,7 @@ class CartController extends Controller
         $product = Product::findOrFail($product_id);
         $image_main = $product->images->where('main_image', 1);
 
-        if(!empty($image_main) && isset($main_image)) {
+        if (!empty($image_main) && isset($main_image)) {
             $url =  $image_main[0]->url;
         } else {
             $url = config('custom.product.image');

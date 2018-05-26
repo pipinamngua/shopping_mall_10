@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Factory;
 
 class RolesTableSeeder extends Seeder
 {
@@ -10,7 +11,7 @@ class RolesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
+    {
         DB::table('roles')->insert([
             [
                 'name' => 'Admin',

@@ -1,0 +1,25 @@
+{
+  "name": "Hoang_library",
+  "authors": [
+    "Nguyen Hoang <quynh4589@gmail.com>"
+  ],
+  "description": "Framgia standard demo Bower",
+  "main": "/",
+  "keywords": [
+    "fonticons"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/pipinamngua/Hoang_library.git",
+  "ignore": [
+    "README.md"
+  ],
+  "_release": "d5d43174c3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d5d43174c3b97dc1748b7560f91334a61bf69e17"
+  },
+  "_source": "https://github.com/pipinamngua/Hoang_library.git",
+  "_target": "*",
+  "_originalSource": "Hoang_library"
+}

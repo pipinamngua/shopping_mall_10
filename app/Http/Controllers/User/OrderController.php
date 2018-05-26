@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\User;
+use App\Mail\OrderShipped;
 use Session;
 use DateTime;
 use Cart;
@@ -49,6 +51,13 @@ class OrderController extends Controller
         Cart::destroy();
         Session::flash('success', trans('custom.order.success'));
 
+        // gui mail ngay cho nguoi dung khi don hang cua ho da thanh cong , dang trong trang thai pending
+
+        /*$id_order = $order->id;
+        $bill = Order::findOrFail($id_order);
+
+        // Mail to user
+        Mail::to($order->email)->send(new OrderShipped($order));*/
         return redirect()->route('cart');
     }
 
